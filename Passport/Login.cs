@@ -19,19 +19,21 @@ namespace Passport
         {
             InitializeComponent();
         }
-      
+        // bộ biến dữ liệu của nhân viên dùng xuyên suốt trong các form sau khi đăng nhập
         public static string username = "";
         public static string pass = "";
         public static string bp = "";
 
-
+        // nút thoát 
         private void btn_quit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        // nút đăng nhập
         private void btn_login_Click(object sender, EventArgs e)
         {
+            // Lấy thông tin đăng nhập từ ô nhập
             username = txt_user.Text;
             pass = txt_pass.Text;
             string connectionString = @"Data Source=ALEXANDER\SQLEXPRESS;Initial Catalog=Passport;User Id=" + username + ";Password=" + pass;
@@ -39,7 +41,8 @@ namespace Passport
             SqlConnection conn = new SqlConnection(connectionString);
             try
             {
-                conn.Open();
+                conn.Open();// nếu kết nối thành công thì tức là thông tin đăng nhập đúng 
+                // khúc using này là để lấy tên bộ phận của nhân viên đó 
                 using(SqlCommand cmd = new SqlCommand("select bophan from Nhanvien where tendn = @username", conn))
                 {
                     cmd.Parameters.AddWithValue("@username", username);  
@@ -52,15 +55,15 @@ namespace Passport
                         }
                     }
                 }
-                conn.Close();
+                // đóng kết nối và mở màn hình làm việc chính 
+                conn.Close(); 
                 Main main = new Main();
                 main.Show();
                 this.Hide();
-                conn.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message); // kết nối ko thành công thì báo lỗi 
             }
         }
     }

@@ -29,12 +29,15 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            btn_deny = new Guna.UI2.WinForms.Guna2Button();
             label8 = new Label();
             lbl_ns = new Label();
             btn_duyet = new Guna.UI2.WinForms.Guna2Button();
@@ -65,6 +68,7 @@
             // 
             // guna2Panel1
             // 
+            guna2Panel1.Controls.Add(btn_deny);
             guna2Panel1.Controls.Add(label8);
             guna2Panel1.Controls.Add(lbl_ns);
             guna2Panel1.Controls.Add(btn_duyet);
@@ -84,12 +88,31 @@
             guna2Panel1.Controls.Add(label2);
             guna2Panel1.Controls.Add(label1);
             guna2Panel1.Controls.Add(lbl_hoten);
-            guna2Panel1.CustomizableEdges = customizableEdges3;
+            guna2Panel1.CustomizableEdges = customizableEdges5;
             guna2Panel1.Location = new Point(12, 82);
             guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2Panel1.Size = new Size(529, 426);
             guna2Panel1.TabIndex = 0;
+            // 
+            // btn_deny
+            // 
+            btn_deny.BorderRadius = 30;
+            btn_deny.CustomizableEdges = customizableEdges1;
+            btn_deny.DisabledState.BorderColor = Color.DarkGray;
+            btn_deny.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_deny.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_deny.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_deny.FillColor = Color.FromArgb(255, 73, 102);
+            btn_deny.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_deny.ForeColor = Color.White;
+            btn_deny.Location = new Point(399, 360);
+            btn_deny.Name = "btn_deny";
+            btn_deny.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btn_deny.Size = new Size(127, 53);
+            btn_deny.TabIndex = 19;
+            btn_deny.Text = "Trả về ";
+            btn_deny.Click += btn_deny_Click;
             // 
             // label8
             // 
@@ -114,16 +137,16 @@
             // btn_duyet
             // 
             btn_duyet.BorderRadius = 30;
-            btn_duyet.CustomizableEdges = customizableEdges1;
+            btn_duyet.CustomizableEdges = customizableEdges3;
             btn_duyet.DisabledState.BorderColor = Color.DarkGray;
             btn_duyet.DisabledState.CustomBorderColor = Color.DarkGray;
             btn_duyet.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btn_duyet.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btn_duyet.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_duyet.ForeColor = Color.White;
-            btn_duyet.Location = new Point(380, 351);
+            btn_duyet.Location = new Point(247, 360);
             btn_duyet.Name = "btn_duyet";
-            btn_duyet.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btn_duyet.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btn_duyet.Size = new Size(127, 53);
             btn_duyet.TabIndex = 16;
             btn_duyet.Text = "Duyệt";
@@ -134,7 +157,7 @@
             lbl_tt.AutoSize = true;
             lbl_tt.Font = new Font("Comic Sans MS", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_tt.ForeColor = Color.FromArgb(255, 73, 102);
-            lbl_tt.Location = new Point(397, 12);
+            lbl_tt.Location = new Point(409, 12);
             lbl_tt.Name = "lbl_tt";
             lbl_tt.Size = new Size(93, 21);
             lbl_tt.TabIndex = 15;
@@ -185,7 +208,7 @@
             lbl_email.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_email.Location = new Point(131, 300);
             lbl_email.Name = "lbl_email";
-            lbl_email.Size = new Size(273, 74);
+            lbl_email.Size = new Size(336, 74);
             lbl_email.TabIndex = 10;
             lbl_email.Text = "hahaha@gmail.com";
             // 
@@ -202,7 +225,7 @@
             // 
             lbl_sdt.AutoSize = true;
             lbl_sdt.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_sdt.Location = new Point(136, 375);
+            lbl_sdt.Location = new Point(93, 375);
             lbl_sdt.Name = "lbl_sdt";
             lbl_sdt.Size = new Size(133, 29);
             lbl_sdt.TabIndex = 8;
@@ -338,5 +361,6 @@
         private Label label8;
         private Label lbl_ns;
         private Label label7;
+        private Guna.UI2.WinForms.Guna2Button btn_deny;
     }
 }

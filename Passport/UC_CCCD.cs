@@ -47,7 +47,7 @@ namespace Passport
                                 string gt = ((bool)reader["gioitinh"] == false) ? "Nam" : "Nữ";
                                
                                 DateTime dt = (DateTime)reader["ngaysinh"];
-                                string ns = dt.ToShortDateString();
+                                string ns = dt.ToString("dd/MM/yyyy");
                                 View_CCCD((string)reader["so_cccd"], (string)reader["hoten"], (string)reader["diachi"], gt, ns, (string)reader["quoctich"], (string)reader["quequan"]);
                                 conn.Close();
                             }

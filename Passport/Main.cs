@@ -1,5 +1,8 @@
 ﻿using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Data.SqlClient;
+using Guna.UI2.WinForms.Suite;
+using Passport.Properties;
+using System.Resources;
 
 namespace Passport
 {
@@ -9,6 +12,54 @@ namespace Passport
         {
             InitializeComponent();
             Menu();
+            Arrow_Button();
+            if (xt) XT();
+            if (xd) XD();
+
+        }
+        private Guna.UI2.WinForms.Guna2ImageButton btn_left_arrow;
+        private Guna.UI2.WinForms.Guna2ImageButton btn_right_arrow;
+        public void Arrow_Button()
+        {
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
+            btn_left_arrow = new Guna.UI2.WinForms.Guna2ImageButton();
+            btn_right_arrow = new Guna.UI2.WinForms.Guna2ImageButton();
+            // 
+            // btn_left_arrow
+            // 
+            btn_left_arrow.CheckedState.ImageSize = new Size(64, 64);
+            btn_left_arrow.HoverState.Image = (Image)resources.GetObject("resource.Image");
+            btn_left_arrow.HoverState.ImageSize = new Size(64, 64);
+            btn_left_arrow.Image = Properties.Resources.left_arrow;
+            btn_left_arrow.ImageOffset = new Point(0, 0);
+            btn_left_arrow.ImageRotate = 0F;
+            btn_left_arrow.Location = new Point(83, 548);
+            btn_left_arrow.Name = "btn_left_arrow";
+            btn_left_arrow.PressedState.ImageSize = new Size(64, 64);
+            btn_left_arrow.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            btn_left_arrow.Size = new Size(89, 76);
+            btn_left_arrow.TabIndex = 3;
+            btn_left_arrow.Click += btn_left_arrow_Click;
+
+            // 
+            // btn_right_arrow
+            // 
+            btn_right_arrow.CheckedState.ImageSize = new Size(64, 64);
+            btn_right_arrow.HoverState.Image = (Image)resources.GetObject("resource.Image1");
+            btn_right_arrow.HoverState.ImageSize = new Size(64, 64);
+            btn_right_arrow.Image = (Image)resources.GetObject("btn_right_arrow.Image");
+            btn_right_arrow.ImageOffset = new Point(0, 0);
+            btn_right_arrow.ImageRotate = 0F;
+            btn_right_arrow.Location = new Point(389, 548);
+            btn_right_arrow.Name = "btn_right_arrow";
+            btn_right_arrow.PressedState.ImageSize = new Size(64, 64);
+            btn_right_arrow.ShadowDecoration.CustomizableEdges = customizableEdges13;
+            btn_right_arrow.Size = new Size(89, 76);
+            btn_right_arrow.TabIndex = 2;
+            btn_right_arrow.Click += btn_right_arrow_Click;
+
         }
         public bool xt = (Login.bp == "xt") ? true : false;
         public bool xd = (Login.bp == "xd") ? true : false;
@@ -18,32 +69,14 @@ namespace Passport
         public static bool left = false;
         public static bool right = false;
         public static int stt = 0;
-        public static int row = 0;  
+        public static int row = 0;
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
-            if (xt)
-            {
-                UC_FormRegister uC_FormRegister = new UC_FormRegister();
-                uC_FormRegister.Location = new Point(0, 0);
-                uC_FormRegister.Size = new Size(545, 521);
-                panel2.Controls.Add(uC_FormRegister);
-
-                UC_CCCD uC_CCCD = new UC_CCCD();
-                uC_CCCD.Location = new Point(605, 20);
-                uC_CCCD.Size = new Size(706, 491);
-                panel2.Controls.Add(uC_CCCD);
-            }
-            if (xd) 
-            {
-                UC_FormRegister uC_FormRegister = new UC_FormRegister();
-                uC_FormRegister.Location = new Point(0, 0);
-                uC_FormRegister.Size = new Size(545, 521);
-                panel2.Controls.Add(uC_FormRegister);
-            }
 
 
         }
+        // hàm thay đổi thuộc tính của các nút menu theo chức năng bộ phận 
         private void Menu()
         {
             if (xt)
@@ -98,6 +131,7 @@ namespace Passport
                 btn_gs.HoverState.BorderColor = Color.FromArgb(53, 45, 125);
             }
         }
+        // hàm hiện màn hình làm việc của bộ phận xác thực 
         public void XT()
         {
             panel2.Controls.Clear();
@@ -120,6 +154,7 @@ namespace Passport
 
         }
 
+        // hàm hiện màn hình làm việc của bộ phận xét duyệt 
         public void XD()
         {
             panel2.Controls.Clear();
@@ -139,7 +174,7 @@ namespace Passport
 
         private void Main_Load(object sender, EventArgs e)
         {
-
+            // hiển thị tên của nhân viên hiện tại đăng nhập vào hệ thống 
             string connectionString = @"Data Source=ALEXANDER\SQLEXPRESS;Initial Catalog=Passport;User Id=" + Login.username + ";Password=" + Login.pass;
             try
             {
