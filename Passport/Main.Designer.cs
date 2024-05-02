@@ -41,7 +41,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel1 = new Panel();
             btn_gs = new Guna.UI2.WinForms.Guna2Button();
             btn_lt = new Guna.UI2.WinForms.Guna2Button();
@@ -52,7 +52,6 @@
             lbl_name = new Label();
             btn_xt = new Guna.UI2.WinForms.Guna2Button();
             panel2 = new Panel();
-            
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(components);
             guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(components);
@@ -60,7 +59,6 @@
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox2).BeginInit();
             panel3.SuspendLayout();
-            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -201,16 +199,14 @@
             // 
             // lbl_name
             // 
-            lbl_name.AutoSize = true;
             lbl_name.Font = new Font("Century Gothic", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_name.ForeColor = Color.White;
-            lbl_name.Location = new Point(39, 9);
+            lbl_name.Location = new Point(8, 10);
             lbl_name.Name = "lbl_name";
             lbl_name.RightToLeft = RightToLeft.Yes;
-            lbl_name.Size = new Size(148, 27);
+            lbl_name.Size = new Size(183, 27);
             lbl_name.TabIndex = 0;
             lbl_name.Text = "Staff's Name";
-            lbl_name.TextAlign = ContentAlignment.TopRight;
             // 
             // btn_xt
             // 
@@ -242,15 +238,12 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(247, 247, 239);
-            //panel2.Controls.Add(btn_left_arrow);
-            //panel2.Controls.Add(btn_right_arrow);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(316, 6);
             panel2.Name = "panel2";
             panel2.Size = new Size(1327, 810);
             panel2.TabIndex = 1;
             panel2.Paint += panel2_Paint;
-
             // 
             // guna2Elipse1
             // 
@@ -266,7 +259,17 @@
             // 
             guna2Elipse3.BorderRadius = 50;
             guna2Elipse3.TargetControl = panel3;
-
+            // 
+            // btn_right_arrow
+            // 
+            btn_right_arrow.Image = (Image)resources.GetObject("btn_right_arrow.Image");
+            btn_right_arrow.ImageOffset = new Point(0, 0);
+            btn_right_arrow.ImageRotate = 0F;
+            btn_right_arrow.Location = new Point(0, 0);
+            btn_right_arrow.Name = "btn_right_arrow";
+            btn_right_arrow.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            btn_right_arrow.Size = new Size(64, 54);
+            btn_right_arrow.TabIndex = 0;
             // 
             // Main
             // 
@@ -285,8 +288,6 @@
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox2).EndInit();
             panel3.ResumeLayout(false);
-            panel3.PerformLayout();
-            panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -306,6 +307,5 @@
         private Guna.UI2.WinForms.Guna2Button btn_xd;
         private Guna.UI2.WinForms.Guna2Button btn_gs;
         private Guna.UI2.WinForms.Guna2Button btn_lt;
-        
     }
 }

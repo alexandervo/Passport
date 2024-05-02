@@ -35,7 +35,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Comic Sans MS", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(52, 26);
+            label1.Location = new Point(158, 12);
             label1.Name = "label1";
             label1.Size = new Size(329, 39);
             label1.TabIndex = 0;
@@ -48,7 +48,7 @@
             BackColor = Color.FromArgb(247, 247, 239);
             Controls.Add(label1);
             Name = "UC_Rules";
-            Size = new Size(445, 555);
+            Size = new Size(700, 624);
             ResumeLayout(false);
             PerformLayout();
         }

@@ -30,7 +30,7 @@ namespace Passport
             // btn_left_arrow
             // 
             btn_left_arrow.CheckedState.ImageSize = new Size(64, 64);
-            btn_left_arrow.HoverState.Image = (Image)resources.GetObject("resource.Image");
+            btn_left_arrow.HoverState.Image = Properties.Resources.left_arrow_hover;
             btn_left_arrow.HoverState.ImageSize = new Size(64, 64);
             btn_left_arrow.Image = Properties.Resources.left_arrow;
             btn_left_arrow.ImageOffset = new Point(0, 0);
@@ -47,9 +47,9 @@ namespace Passport
             // btn_right_arrow
             // 
             btn_right_arrow.CheckedState.ImageSize = new Size(64, 64);
-            btn_right_arrow.HoverState.Image = (Image)resources.GetObject("resource.Image1");
+            btn_right_arrow.HoverState.Image = Properties.Resources.right_arrow_hover;
             btn_right_arrow.HoverState.ImageSize = new Size(64, 64);
-            btn_right_arrow.Image = (Image)resources.GetObject("btn_right_arrow.Image");
+            btn_right_arrow.Image = Properties.Resources.right_arrow;
             btn_right_arrow.ImageOffset = new Point(0, 0);
             btn_right_arrow.ImageRotate = 0F;
             btn_right_arrow.Location = new Point(389, 548);
@@ -169,6 +169,11 @@ namespace Passport
             uC_FormRegister.Size = new Size(545, 521);
             panel2.Controls.Add(uC_FormRegister);
 
+            UC_Rules uC_Rules = new UC_Rules();
+            uC_Rules.Location = new Point(605, 20);
+            uC_Rules.Size = new Size(700, 750);
+            panel2.Controls.Add(uC_Rules);
+
 
         }
 
@@ -190,6 +195,10 @@ namespace Passport
                             if (reader.Read())
                             {
                                 lbl_name.Text = (string)reader["hoten"];
+                                ToolTip tooltip = new ToolTip();
+                                tooltip.SetToolTip(lbl_name, lbl_name.Text);
+                                reader.Close();
+                                conn.Close();
                             }
 
                         }
