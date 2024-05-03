@@ -22,16 +22,68 @@ namespace Passport
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // Kiểm tra xem sự kiện được kích hoạt bởi ô chứa nút
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && dgv_lt.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+            if (dgv_lt.Columns[3].Name == "save")
             {
-                // Lấy giá trị của ô được nhấp
-                object cellValue = dgv_lt.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
-
-                // Xử lý tương ứng với ô chứa nút
-                if (cellValue != null && cellValue.ToString() == "Chưa lưu") // Thay "ButtonValue" bằng giá trị của nút trong ô
+                DataGridViewCell cell = dgv_lt.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                string connectionString = @"Data Source=ALEXANDER\SQLEXPRESS;Initial Catalog=Passport;User Id=" + Login.username + ";Password=" + Login.pass;
+                try
                 {
-                    //thực hiện insert dữ liệu vào bảng lưu trữ
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        conn.Open();
+                        string query = "select * from Form_Register where shs = @so";
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@so", cell.Value.ToString());
+                            using(SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                if (!reader.Read())
+                                {
+                                    int so = (int)reader["shs"];
+                                    string hoten = (string)reader["hoten"];
+                                    string dc = (string)reader["diachi"];
+                                    bool gt = (bool)reader["gioitinh"];
+                                    DateOnly dt = (DateOnly)reader["ngaysinh"];
+                                    string cccd = (string)reader["so_cccd"];
+                                    string sdt = (string)reader["sdt"];
+                                    string email = (string)reader["email"];
+                                    reader.Close();
+                                    query = "insert into Luutru Values(@so, @hoten, @dc, @gt, @dt, @cccd, @sdt, @email)";
+                                    using (SqlCommand cmd_insert = new SqlCommand(query, conn))
+                                    {
+                                        cmd_insert.Parameters.AddWithValue("@so", so);
+                                        cmd_insert.Parameters.AddWithValue("@hoten", hoten);
+                                        cmd_insert.Parameters.AddWithValue("@dc", dc);
+                                        cmd_insert.Parameters.AddWithValue("@gt", gt);
+                                        cmd_insert.Parameters.AddWithValue("@dt", dt);
+                                        cmd_insert.Parameters.AddWithValue("@cccd", cccd);
+                                        cmd_insert.Parameters.AddWithValue("@sdt", sdt);
+                                        cmd_insert.Parameters.AddWithValue("@email", email);
+                                        int rowsAffected = cmd.ExecuteNonQuery();
 
+                                        if (rowsAffected > 0)
+                                        {
+                                            query = "update Form_Register set trave = 1 where shs = @so";
+                                            using (SqlCommand cmd_update = new SqlCommand(query,conn))
+                                            {
+                                                cmd_update.Parameters.AddWithValue("@so", so);
+                                                rowsAffected = cmd.ExecuteNonQuery();
+                                                if (rowsAffected > 0)
+                                                {
+                                                    MessageBox.Show("Lưu hồ sơ thành công!");
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            conn.Close();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading data: " + ex.Message);
                 }
             }
         }
@@ -44,7 +96,7 @@ namespace Passport
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    string query = "select shs, gioitinh, trangthai, xacthuc, trave from Form_Register where xacthuc = 1";
+                    string query = "select shs, gioitinh, trangthai, xacthuc, trave from Form_Register where xacthuc = 1 and trave = 0";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -62,12 +114,12 @@ namespace Passport
                             string so = "Hồ sơ " + row["shs"].ToString();
                             bool gt = (bool)row["gioitinh"];
                             string tt = (bool)row["trangthai"] ? "Đã duyệt" : "Chưa duyệt";
-                            Image img = gt ? Properties.Resources.girl1 : Properties.Resources.boy1;                   
-                                     
+                            Image img = gt ? Properties.Resources.girl1 : Properties.Resources.boy1;
+
                             // Thêm dữ liệu vào DataGridView
                             dgv_lt.Rows.Add(img, so, tt);
-                            dgv_lt.Rows[i].Cells[3].Value = ((bool)row["trangthai"] && (bool)row["xacthuc"] && (bool)row["trave"]) ? "Đã lưu" : "Lưu";
-                        }                   
+
+                        }
                         conn.Close();
                     }
                 }
@@ -77,5 +129,7 @@ namespace Passport
                 MessageBox.Show("Error loading data: " + ex.Message);
             }
         }
+
+        
     }
 }

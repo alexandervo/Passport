@@ -42,11 +42,11 @@ create table Nhanvien
 )
 
 insert into Nhanvien values
-('phuvk', N'Võ Kiến Phú', 'ad'), 
-('anhpvt', N'Phan Vũ Tuấn Anh', 'xt'),
-('danglta', N'Lai Thị Ánh Đăng', 'xd'),
-('linhnta', N'Nguyễn Trần Ánh Linh', 'lt'),
-('namnh', N'Nguyễn Hoàng Nam', 'gs')
+('phuvk', N'Võ Kiến Phú', 'xt'), 
+('anhpvt', N'Phan Vũ Tuấn Anh', 'xd'),
+('danglta', N'Lai Thị Ánh Đăng', 'lt'),
+('linhnta', N'Nguyễn Trần Ánh Linh', 'gs')
+
 
 insert into Resident_data values
 ('000000000001', N'Phạm Lê Đức Anh', '1988-02-20', 0, N'Việt Nam', N'Hải Dương', N'123A đường Lý Thường Kiệt, Phường 10, Quận 5, TPHCM'),

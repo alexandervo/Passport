@@ -146,7 +146,7 @@
             save.HeaderText = "Save";
             save.MinimumWidth = 6;
             save.Name = "save";
-            save.Text = "";
+            save.Text = "Lưu";
             save.UseColumnTextForButtonValue = true;
             // 
             // UC_LT

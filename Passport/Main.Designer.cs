@@ -201,10 +201,10 @@
             // 
             lbl_name.Font = new Font("Century Gothic", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_name.ForeColor = Color.White;
-            lbl_name.Location = new Point(8, 10);
+            lbl_name.Location = new Point(21, 10);
             lbl_name.Name = "lbl_name";
-            lbl_name.RightToLeft = RightToLeft.Yes;
-            lbl_name.Size = new Size(183, 27);
+            lbl_name.RightToLeft = RightToLeft.No;
+            lbl_name.Size = new Size(170, 27);
             lbl_name.TabIndex = 0;
             lbl_name.Text = "Staff's Name";
             // 

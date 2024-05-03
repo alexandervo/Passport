@@ -203,9 +203,27 @@ namespace Passport
                         {
                             if (reader.Read())
                             {
-                                lbl_name.Text = (string)reader["hoten"];
-                                ToolTip tooltip = new ToolTip();
-                                tooltip.SetToolTip(lbl_name, lbl_name.Text);
+                                string name = (string)reader["hoten"];
+                                if (name.Length < 12) lbl_name.Text = name;
+                                else
+                                {
+                                    string tmp = "";
+                                    int count = 0;
+                                    lbl_name.Text = "";
+
+                                    for (int i = name.Length - 1; i >= 0; --i)
+                                    {
+                                        if (name[i] == ' ') ++count;
+                                        if (count < 2)
+                                        {
+                                            tmp += name[i];
+
+                                        }
+                                        else break;
+
+                                    }
+                                    for (int i = tmp.Length - 1; i >= 0; --i) lbl_name.Text += tmp[i];
+                                }
                                 reader.Close();
                                 conn.Close();
                             }
