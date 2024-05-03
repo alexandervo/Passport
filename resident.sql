@@ -40,6 +40,18 @@ create table Nhanvien
 	bophan varchar(20) not null,
 
 )
+create table Luutru
+(
+	shs int,
+	hoten nvarchar(50) not null,
+	diachi nvarchar(100) not null,
+	gioitinh bit not null,
+	ngaysinh date not null,
+	so_cccd varchar(12) not null,
+	sdt varchar(10) not null,
+	email nvarchar(100),
+	constraint fk_cccd_lt foreign key (so_cccd) references Resident_data (so_cccd)
+)
 
 insert into Nhanvien values
 ('phuvk', N'Võ Kiến Phú', 'xt'), 
@@ -88,6 +100,7 @@ grant select on Nhanvien to anhpvt;
 
 grant select, update on Form_Register to danglta;
 grant select on Nhanvien to danglta;
+grant select, insert on Luutru to danglta
 
 grant select on Nhanvien to linhnta;
 grant select, update on Form_Register to linhnta;
@@ -107,4 +120,5 @@ go
 drop database Passport
 go 
 
-select * from Form_Register where trave = 0 and trangthai = 0
+select * from Form_Register where trave = 0 and trangthai = 0;
+select * from Luutru;
