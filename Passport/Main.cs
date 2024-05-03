@@ -15,6 +15,7 @@ namespace Passport
             Arrow_Button();
             if (xt) XT();
             if (xd) XD();
+            if (lt) LT();
 
         }
         private Guna.UI2.WinForms.Guna2ImageButton btn_left_arrow;
@@ -175,6 +176,14 @@ namespace Passport
             panel2.Controls.Add(uC_Rules);
 
 
+        }
+        public void LT()
+        {
+            panel2.Controls.Clear();
+            UC_LT uC_LT = new UC_LT();
+            uC_LT.Location = new Point(0, 0);
+            uC_LT.Size = new Size(1241, 766);
+            panel2.Controls.Add (uC_LT);
         }
 
         private void Main_Load(object sender, EventArgs e)

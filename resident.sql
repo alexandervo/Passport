@@ -90,6 +90,7 @@ grant select, update on Form_Register to danglta;
 grant select on Nhanvien to danglta;
 
 grant select on Nhanvien to linhnta;
+grant select, update on Form_Register to linhnta;
 
 --grant insert, update on database::Passport to linhnta;
 
