@@ -36,9 +36,10 @@ create table Nhanvien
 (
 	tendn varchar(20) not null,
 	hoten nvarchar(50) not null,
-	bophan varchar(20) not null,
+	bophan char(2) not null,
 
 )
+
 create table Luutru
 (
 	shs varchar(15),
@@ -54,9 +55,14 @@ create table Luutru
 
 create table GiamSat
 (
+	bp varchar(2),
 	hs varchar(15),
-
+	tt char(1),
+	nv varchar(10),
+	dt datetime
 )
+
+drop table GiamSat
 insert into Nhanvien values
 ('phuvk', N'Võ Kiến Phú', 'ad'), 
 ('anhpvt', N'Phan Vũ Tuấn Anh', 'xd'),
@@ -127,7 +133,27 @@ grant select on Nhanvien to linhnta;
 grant select, update on Form_Register to linhnta;
 
 --tạo trigger
+create trigger Audit_Update on Form_Register
+after update
+as
+begin
+	declare @tt char = ''
+	declare @bp varchar(2) = ''
+	select 
+		@tt = case
+			when trave = 1 and trangthai = 1 and xacthuc = 1 then 'l'
+			when trave = 1 and (trangthai = 1 or xacthuc = 1) then 't'
+			when trave = 0 and trangthai = 0 and xacthuc = 1 then 'x'
+			when trave = 0 and trangthai = 1 and xacthuc = 1 then 'd'
+			end
+	from inserted
+	declare @hs varchar(15)
+	select @hs = cast(shs as varchar(15)) from inserted
+	select @bp = bophan from Nhanvien where tendn = SUSER_NAME()
+	insert into GiamSat values (@bp, @hs, @tt, SUSER_NAME(), GETDATE())
+end
 
+drop trigger Audit_Update
 
 -- các lệnh để test thui 
 
@@ -143,7 +169,7 @@ drop database Passport
 go 
 
 select * from Form_Register where trave = 0 and trangthai = 0;
-select * from Luutru;
+select * from GiamSat;
 
 
 
