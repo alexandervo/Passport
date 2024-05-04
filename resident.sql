@@ -54,10 +54,11 @@ create table Luutru
 )
 
 insert into Nhanvien values
-('phuvk', N'Võ Kiến Phú', 'xt'), 
+('phuvk', N'Võ Kiến Phú', 'ad'), 
 ('anhpvt', N'Phan Vũ Tuấn Anh', 'xd'),
 ('danglta', N'Lai Thị Ánh Đăng', 'lt'),
-('linhnta', N'Nguyễn Trần Ánh Linh', 'gs')
+('linhnta', N'Nguyễn Trần Ánh Linh', 'gs'),
+('lanptn', N'Phan Thị Ngọc Lan', 'xt')
 
 
 insert into Resident_data values
@@ -81,6 +82,10 @@ create user namnh for login namnh;
 create login phuvk with password = 'phuvk';
 create user phuvk for login phuvk;
 
+create login lanptn with password = 'lanptn';
+create user lanptn for login lanptn;
+
+
 create login anhpvt with password = 'anhpvt';
 create user anhpvt for login anhpvt;
 
@@ -94,9 +99,13 @@ create user linhnta for login linhnta;
 
 grant control on database::Passport to phuvk;
 
-grant select on Resident_data to anhpvt;
+revoke select on Resident_data to anhpvt;
 grant select, update on Form_Register to anhpvt;
 grant select on Nhanvien to anhpvt;
+
+grant select on Resident_data to lanptn;
+grant select, update on Form_Register to lanptn;
+grant select on Nhanvien to lanptn;
 
 grant select, update on Form_Register to danglta;
 grant select on Nhanvien to danglta;

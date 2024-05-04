@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             label1 = new Label();
@@ -48,6 +49,7 @@
             label3 = new Label();
             btn_login = new Guna.UI2.WinForms.Guna2Button();
             btn_quit = new Guna.UI2.WinForms.Guna2Button();
+            btn_hide_pw = new Guna.UI2.WinForms.Guna2ImageButton();
             guna2Panel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -60,11 +62,11 @@
             // 
             guna2Panel2.BackColor = Color.FromArgb(53, 45, 125);
             guna2Panel2.Controls.Add(label1);
-            guna2Panel2.CustomizableEdges = customizableEdges11;
+            guna2Panel2.CustomizableEdges = customizableEdges10;
             guna2Panel2.Dock = DockStyle.Right;
             guna2Panel2.Location = new Point(419, 0);
             guna2Panel2.Name = "guna2Panel2";
-            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges11;
             guna2Panel2.Size = new Size(83, 442);
             guna2Panel2.TabIndex = 10;
             // 
@@ -81,7 +83,7 @@
             // txt_user
             // 
             txt_user.BorderRadius = 15;
-            txt_user.CustomizableEdges = customizableEdges13;
+            txt_user.CustomizableEdges = customizableEdges8;
             txt_user.DefaultText = "";
             txt_user.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txt_user.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -97,14 +99,16 @@
             txt_user.PasswordChar = '\0';
             txt_user.PlaceholderText = "";
             txt_user.SelectedText = "";
-            txt_user.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            txt_user.ShadowDecoration.CustomizableEdges = customizableEdges9;
             txt_user.Size = new Size(324, 63);
             txt_user.TabIndex = 11;
+            txt_user.KeyDown += KeyDown;
+            txt_user.KeyPress += txt_user_KeyPress;
             // 
             // txt_pass
             // 
             txt_pass.BorderRadius = 15;
-            txt_pass.CustomizableEdges = customizableEdges15;
+            txt_pass.CustomizableEdges = customizableEdges6;
             txt_pass.DefaultText = "";
             txt_pass.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txt_pass.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -117,12 +121,14 @@
             txt_pass.Location = new Point(43, 262);
             txt_pass.Margin = new Padding(4, 6, 4, 6);
             txt_pass.Name = "txt_pass";
-            txt_pass.PasswordChar = '\0';
+            txt_pass.PasswordChar = '*';
             txt_pass.PlaceholderText = "";
             txt_pass.SelectedText = "";
-            txt_pass.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            txt_pass.ShadowDecoration.CustomizableEdges = customizableEdges7;
             txt_pass.Size = new Size(324, 63);
             txt_pass.TabIndex = 12;
+            txt_pass.KeyPress += txt_pass_KeyPress;
+            txt_pass.KeyUp += KeyDown;
             // 
             // label2
             // 
@@ -147,7 +153,7 @@
             // btn_login
             // 
             btn_login.BorderRadius = 30;
-            btn_login.CustomizableEdges = customizableEdges17;
+            btn_login.CustomizableEdges = customizableEdges4;
             btn_login.DisabledState.BorderColor = Color.DarkGray;
             btn_login.DisabledState.CustomBorderColor = Color.DarkGray;
             btn_login.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -157,7 +163,7 @@
             btn_login.ForeColor = Color.White;
             btn_login.Location = new Point(43, 360);
             btn_login.Name = "btn_login";
-            btn_login.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            btn_login.ShadowDecoration.CustomizableEdges = customizableEdges5;
             btn_login.Size = new Size(137, 51);
             btn_login.TabIndex = 15;
             btn_login.Text = "Đăng nhập";
@@ -166,7 +172,7 @@
             // btn_quit
             // 
             btn_quit.BorderRadius = 30;
-            btn_quit.CustomizableEdges = customizableEdges19;
+            btn_quit.CustomizableEdges = customizableEdges2;
             btn_quit.DisabledState.BorderColor = Color.DarkGray;
             btn_quit.DisabledState.CustomBorderColor = Color.DarkGray;
             btn_quit.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -176,11 +182,28 @@
             btn_quit.ForeColor = Color.White;
             btn_quit.Location = new Point(230, 360);
             btn_quit.Name = "btn_quit";
-            btn_quit.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            btn_quit.ShadowDecoration.CustomizableEdges = customizableEdges3;
             btn_quit.Size = new Size(137, 51);
             btn_quit.TabIndex = 16;
             btn_quit.Text = "Thoát";
             btn_quit.Click += btn_quit_Click;
+            // 
+            // btn_hide_pw
+            // 
+            btn_hide_pw.BackColor = Color.WhiteSmoke;
+            btn_hide_pw.CheckedState.ImageSize = new Size(64, 64);
+            btn_hide_pw.HoverState.ImageSize = new Size(32, 32);
+            btn_hide_pw.Image = Properties.Resources.hide;
+            btn_hide_pw.ImageOffset = new Point(0, 0);
+            btn_hide_pw.ImageRotate = 0F;
+            btn_hide_pw.ImageSize = new Size(32, 32);
+            btn_hide_pw.Location = new Point(315, 275);
+            btn_hide_pw.Name = "btn_hide_pw";
+            btn_hide_pw.PressedState.ImageSize = new Size(32, 32);
+            btn_hide_pw.ShadowDecoration.CustomizableEdges = customizableEdges1;
+            btn_hide_pw.Size = new Size(47, 39);
+            btn_hide_pw.TabIndex = 17;
+            btn_hide_pw.Click += hide_pw_Click;
             // 
             // Login
             // 
@@ -188,6 +211,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(247, 247, 239);
             ClientSize = new Size(502, 442);
+            Controls.Add(btn_hide_pw);
             Controls.Add(btn_quit);
             Controls.Add(btn_login);
             Controls.Add(label3);
@@ -215,5 +239,6 @@
         private Label label2;
         private Guna.UI2.WinForms.Guna2TextBox txt_pass;
         private Guna.UI2.WinForms.Guna2Button btn_quit;
+        private Guna.UI2.WinForms.Guna2ImageButton btn_hide_pw;
     }
 }

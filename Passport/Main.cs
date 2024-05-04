@@ -11,11 +11,9 @@ namespace Passport
         public Main()
         {
             InitializeComponent();
-            Menu();
             Arrow_Button();
-            if (xt) XT();
-            if (xd) XD();
-            if (lt) LT();
+            if (ad) xt = true;
+            Menu();
 
         }
         private Guna.UI2.WinForms.Guna2ImageButton btn_left_arrow;
@@ -62,15 +60,17 @@ namespace Passport
             btn_right_arrow.Click += btn_right_arrow_Click;
 
         }
-        public bool xt = (Login.bp == "xt") ? true : false;
-        public bool xd = (Login.bp == "xd") ? true : false;
-        public bool lt = (Login.bp == "lt") ? true : false;
-        public bool gs = (Login.bp == "gs") ? true : false;
+        public static bool xt = (Login.bp == "xt") ? true : false;
+        public static bool xd = (Login.bp == "xd") ? true : false;
+        public static bool lt = (Login.bp == "lt") ? true : false;
+        public static bool gs = (Login.bp == "gs") ? true : false;
+        public static bool ad = (Login.bp == "ad") ? true : false;
         public static string so_cccd = "?";
         public static bool left = false;
         public static bool right = false;
         public static int stt = 0;
         public static int row = 0;
+        public static string connectionString = @"Data Source=" + Login.sql_server_name + ";Initial Catalog=Passport;User Id=" + Login.username + ";Password=" + Login.pass;
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
@@ -85,12 +85,14 @@ namespace Passport
                 btn_xt.FillColor = Color.FromArgb(253, 192, 0);
                 btn_xt.HoverState.FillColor = Color.FromArgb(253, 192, 0);
                 btn_xt.HoverState.BorderColor = Color.FromArgb(253, 192, 0);
+                XT();
             }
             else
             {
                 btn_xt.FillColor = Color.FromArgb(53, 45, 125);
                 btn_xt.HoverState.FillColor = Color.FromArgb(53, 45, 125);
                 btn_xt.HoverState.BorderColor = Color.FromArgb(53, 45, 125);
+
             }
 
             if (xd)
@@ -98,6 +100,7 @@ namespace Passport
                 btn_xd.FillColor = Color.FromArgb(253, 192, 0);
                 btn_xd.HoverState.FillColor = Color.FromArgb(253, 192, 0);
                 btn_xd.HoverState.BorderColor = Color.FromArgb(253, 192, 0);
+                XD();
             }
             else
             {
@@ -111,6 +114,7 @@ namespace Passport
                 btn_lt.FillColor = Color.FromArgb(253, 192, 0);
                 btn_lt.HoverState.FillColor = Color.FromArgb(253, 192, 0);
                 btn_lt.HoverState.BorderColor = Color.FromArgb(253, 192, 0);
+                LT();
             }
             else
             {
@@ -124,6 +128,7 @@ namespace Passport
                 btn_gs.FillColor = Color.FromArgb(253, 192, 0);
                 btn_gs.HoverState.FillColor = Color.FromArgb(253, 192, 0);
                 btn_gs.HoverState.BorderColor = Color.FromArgb(253, 192, 0);
+                GS();
             }
             else
             {
@@ -183,13 +188,20 @@ namespace Passport
             UC_LT uC_LT = new UC_LT();
             uC_LT.Location = new Point(0, 0);
             uC_LT.Size = new Size(1241, 766);
-            panel2.Controls.Add (uC_LT);
+            panel2.Controls.Add(uC_LT);
+        }
+        public void GS()
+        {
+            panel2.Controls.Clear();
+            UC_GS uC_GS = new UC_GS();
+            uC_GS.Location = new Point(0, 0);
+            uC_GS.Size = new Size(1295, 766);
+            panel2.Controls.Add(uC_GS);
         }
 
         private void Main_Load(object sender, EventArgs e)
         {
             // hiển thị tên của nhân viên hiện tại đăng nhập vào hệ thống 
-            string connectionString = @"Data Source=ALEXANDER\SQLEXPRESS;Initial Catalog=Passport;User Id=" + Login.username + ";Password=" + Login.pass;
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
@@ -245,7 +257,7 @@ namespace Passport
         {
             Application.Exit();
         }
-  
+
 
         private void btn_right_arrow_Click(object sender, EventArgs e)
         {
@@ -273,6 +285,54 @@ namespace Passport
                 if (xd) XD();
             }
 
+        }
+
+        private void btn_xt_Click(object sender, EventArgs e)
+        {
+            if (ad)
+            {
+                xt = true;
+                xd = false;
+                lt = false;
+                gs = false;
+                Menu();
+            }
+        }
+
+        private void btn_xd_Click(object sender, EventArgs e)
+        {
+            if (ad)
+            {
+                xt = false;
+                xd = true;
+                lt = false;
+                gs = false;
+                Menu();
+            }
+        }
+
+        private void btn_lt_Click(object sender, EventArgs e)
+        {
+            if (ad)
+            {
+                xt = false;
+                xd = false;
+                lt = true;
+                gs = false;
+                Menu();
+            }
+        }
+
+        private void btn_gs_Click(object sender, EventArgs e)
+        {
+            if (ad)
+            {
+                xt = false;
+                xd = false;
+                lt = false;
+                gs = true;
+                Menu();
+            }
         }
     }
 }

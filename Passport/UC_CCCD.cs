@@ -30,10 +30,10 @@ namespace Passport
         }
         private void UC_CCCD_Load(object sender, EventArgs e)
         {
-            string connectionString = @"Data Source=ALEXANDER\SQLEXPRESS;Initial Catalog=Passport;User Id=" + Login.username + ";Password=" + Login.pass;
+            //string connectionString = @"Data Source=ALEXANDER\SQLEXPRESS;Initial Catalog=Passport;User Id=" + Login.username + ";Password=" + Login.pass;
             try
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlConnection conn = new SqlConnection(Main.connectionString))
                 {
                     conn.Open();
                     string query = "select * from Resident_data where so_cccd = @so_cccd";

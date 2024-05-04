@@ -24,7 +24,7 @@ namespace Passport
         // hàm để hiện các thông tin từ form đăng ký 
         private void View_Register(string shs, string tt, string hoten, string dc, string gt, string ns, string cccd, string sdt, string email)
         {
-            label13.Text = (Login.bp == "xt") ? "Trình trạng xác thực:" : "Tình trạng hồ sơ:";
+            label13.Text = (Main.xt) ? "Trình trạng xác thực:" : "Tình trạng hồ sơ:";
             lbl_shs.Text = shs;
             lbl_tt.Text = tt;
             if (tt == "Đã duyệt" || tt == "Đã xác thực")
@@ -50,14 +50,14 @@ namespace Passport
         // hàm để lấy thông tin form đăng ký từ cơ sở dữ liệu 
         public void Connect_Database()
         {
-            string connectionString = @"Data Source=ALEXANDER\SQLEXPRESS;Initial Catalog=Passport;User Id=" + Login.username + ";Password=" + Login.pass;
+            //string connectionString = @"Data Source=ALEXANDER\SQLEXPRESS;Initial Catalog=Passport;User Id=" + Login.username + ";Password=" + Login.pass;
             try
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlConnection conn = new SqlConnection(Main.connectionString))
                 {
                     conn.Open();
                     string query = "";
-                    if (Login.bp == "xt") query = "select * from Form_Register where trave = 0 and trangthai = 0";
+                    if (Main.xt) query = "select * from Form_Register where trave = 0 and trangthai = 0";
                     else query = "select * from Form_Register where xacthuc = 1";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -74,7 +74,7 @@ namespace Passport
                             string so = row["shs"].ToString();
                             string gt = ((bool)row["gioitinh"]) ? "Nữ" : "Nam";
                             string tt = "???";
-                            if (Login.bp == "xt") tt = ((bool)row["xacthuc"]) ? "Đã xác thực" : "Chưa xác thực";
+                            if (Main.xt) tt = ((bool)row["xacthuc"]) ? "Đã xác thực" : "Chưa xác thực";
                             else tt = ((bool)row["trangthai"]) ? "Đã duyệt" : "Chưa duyệt";
 
                             string ns = ((DateTime)row["ngaysinh"]).ToString("dd/MM/yyyy");
@@ -107,10 +107,10 @@ namespace Passport
 
         private void btn_duyet_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Data Source=ALEXANDER\SQLEXPRESS;Initial Catalog=Passport;User Id=" + Login.username + ";Password=" + Login.pass;
+            //string connectionString = @"Data Source=ALEXANDER\SQLEXPRESS;Initial Catalog=Passport;User Id=" + Login.username + ";Password=" + Login.pass;
             try
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlConnection conn = new SqlConnection(Main.connectionString))
                 {
                     conn.Open();
                     string query = "select * from Form_Register where so_cccd = @cccd";
@@ -120,12 +120,12 @@ namespace Passport
                         SqlDataReader reader = cmd.ExecuteReader();
                         if (reader.Read())
                         {
-                            bool currentStatus = (Login.bp == "xt") ? (bool)reader["xacthuc"] : (bool)reader["trangthai"];
+                            bool currentStatus = (Main.xt) ? (bool)reader["xacthuc"] : (bool)reader["trangthai"];
                             bool newStatus = !currentStatus;
                             reader.Close();
                             // Update trạng thái
                             string updateQuery = "";
-                            if (Login.bp == "xt") updateQuery = "update Form_Register set xacthuc = @newStatus where so_cccd = @cccd";
+                            if (Main.xt) updateQuery = "update Form_Register set xacthuc = @newStatus where so_cccd = @cccd";
                             else updateQuery = "update Form_Register set trangthai = @newStatus where so_cccd = @cccd";
                             using (SqlCommand updateCmd = new SqlCommand(updateQuery, conn))
                             {
@@ -152,10 +152,10 @@ namespace Passport
 
         private void btn_deny_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Data Source=ALEXANDER\SQLEXPRESS;Initial Catalog=Passport;User Id=" + Login.username + ";Password=" + Login.pass;
+            //string connectionString = @"Data Source=ALEXANDER\SQLEXPRESS;Initial Catalog=Passport;User Id=" + Login.username + ";Password=" + Login.pass;
             try
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlConnection conn = new SqlConnection(Main.connectionString))
                 {
                     conn.Open();
                     string query = "select * from Form_Register where so_cccd = @cccd";

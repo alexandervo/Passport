@@ -25,10 +25,10 @@ namespace Passport
             if (dgv_lt.Columns[3].Name == "save")
             {
                 DataGridViewCell cell = dgv_lt.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                string connectionString = @"Data Source=ALEXANDER\SQLEXPRESS;Initial Catalog=Passport;User Id=" + Login.username + ";Password=" + Login.pass;
+                //string connectionString = @"Data Source=ALEXANDER\SQLEXPRESS;Initial Catalog=Passport;User Id=" + Login.username + ";Password=" + Login.pass;
                 try
                 {
-                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    using (SqlConnection conn = new SqlConnection(Main.connectionString))
                     {
                         conn.Open();
                         string query = "select * from Form_Register where shs = @so";
@@ -93,7 +93,7 @@ namespace Passport
             string connectionString = @"Data Source=ALEXANDER\SQLEXPRESS;Initial Catalog=Passport;User Id=" + Login.username + ";Password=" + Login.pass;
             try
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlConnection conn = new SqlConnection(Main.connectionString))
                 {
                     conn.Open();
                     string query = "select shs, gioitinh, trangthai, xacthuc, trave from Form_Register where xacthuc = 1 and trave = 0";

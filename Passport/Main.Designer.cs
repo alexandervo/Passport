@@ -99,6 +99,7 @@
             btn_gs.Size = new Size(272, 57);
             btn_gs.TabIndex = 10;
             btn_gs.Text = "Giám sát";
+            btn_gs.Click += btn_gs_Click;
             // 
             // btn_lt
             // 
@@ -122,6 +123,7 @@
             btn_lt.Size = new Size(272, 57);
             btn_lt.TabIndex = 9;
             btn_lt.Text = "Lưu trữ";
+            btn_lt.Click += btn_lt_Click;
             // 
             // btn_xd
             // 
@@ -145,6 +147,7 @@
             btn_xd.Size = new Size(272, 57);
             btn_xd.TabIndex = 8;
             btn_xd.Text = "Xét duyệt";
+            btn_xd.Click += btn_xd_Click;
             // 
             // btn_exit
             // 
@@ -234,6 +237,7 @@
             btn_xt.Size = new Size(272, 57);
             btn_xt.TabIndex = 3;
             btn_xt.Text = "Xác thực";
+            btn_xt.Click += btn_xt_Click;
             // 
             // panel2
             // 
