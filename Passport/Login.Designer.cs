@@ -152,7 +152,7 @@
             // 
             // btn_login
             // 
-            btn_login.BorderRadius = 30;
+            btn_login.BorderRadius = 25;
             btn_login.CustomizableEdges = customizableEdges4;
             btn_login.DisabledState.BorderColor = Color.DarkGray;
             btn_login.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -171,7 +171,7 @@
             // 
             // btn_quit
             // 
-            btn_quit.BorderRadius = 30;
+            btn_quit.BorderRadius = 25;
             btn_quit.CustomizableEdges = customizableEdges2;
             btn_quit.DisabledState.BorderColor = Color.DarkGray;
             btn_quit.DisabledState.CustomBorderColor = Color.DarkGray;

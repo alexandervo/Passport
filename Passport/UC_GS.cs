@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -89,6 +90,49 @@ namespace Passport
             check_xd = false;
             check_lt = true;
             btn_Click();
+        }
+
+        public void Load_Data()
+        {
+            dgv_gs.Rows.Clear();
+            string connectionString = @"Data Source=ALEXANDER\SQLEXPRESS;Initial Catalog=Passport;User Id=" + Login.username + ";Password=" + Login.pass;
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(Main.connectionString))
+                {
+                    conn.Open();
+                    string query = "select * from GiamSat where bp = @bp";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds, "Form_Register");
+
+                        DataTable dataTable = ds.Tables["Form_Register"];
+                        // Lấy số lượng hàng trong DataTable
+                        int rowCount = dataTable.Rows.Count;
+
+                        // Lặp qua từng DataRow trong DataTable
+                        for (int i = 0; i < rowCount; ++i)
+                        {
+                            DataRow row = dataTable.Rows[i];
+                            string so = "Hồ sơ " + row["shs"].ToString();
+                          
+                            string tt = (bool)row["trangthai"] ? "Đã duyệt" : "Chưa duyệt";
+                          
+
+                            // Thêm dữ liệu vào DataGridView
+                            dgv_gs.Rows.Add(so, tt);
+
+                        }
+                        conn.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading data: " + ex.Message);
+            }
         }
     }
 

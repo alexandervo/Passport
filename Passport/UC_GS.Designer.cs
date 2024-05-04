@@ -66,6 +66,7 @@
             dgv_gs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgv_gs.ColumnHeadersHeight = 4;
             dgv_gs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dgv_gs.ColumnHeadersVisible = false;
             dgv_gs.Columns.AddRange(new DataGridViewColumn[] { bp, hs, tt, xt });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;

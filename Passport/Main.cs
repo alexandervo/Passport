@@ -187,7 +187,7 @@ namespace Passport
             panel2.Controls.Clear();
             UC_LT uC_LT = new UC_LT();
             uC_LT.Location = new Point(0, 0);
-            uC_LT.Size = new Size(1241, 766);
+            uC_LT.Size = new Size(1295, 766);
             panel2.Controls.Add(uC_LT);
         }
         public void GS()

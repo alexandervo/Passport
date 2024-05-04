@@ -35,13 +35,21 @@
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             dgv_lt = new Guna.UI2.WinForms.Guna2DataGridView();
-            guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             avatar = new DataGridViewImageColumn();
             no = new DataGridViewTextBoxColumn();
             status = new DataGridViewTextBoxColumn();
             save = new DataGridViewButtonColumn();
+            guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
+            panel1 = new Panel();
+            btn_hsl = new Guna.UI2.WinForms.Guna2Button();
+            btn_dlt = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)dgv_lt).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // dgv_lt
@@ -87,7 +95,7 @@
             dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
             dgv_lt.RowsDefaultCellStyle = dataGridViewCellStyle6;
             dgv_lt.RowTemplate.Height = 300;
-            dgv_lt.Size = new Size(1159, 677);
+            dgv_lt.Size = new Size(1060, 677);
             dgv_lt.TabIndex = 0;
             dgv_lt.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             dgv_lt.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -111,11 +119,6 @@
             dgv_lt.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dgv_lt.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dgv_lt.CellContentClick += guna2DataGridView1_CellContentClick;
-            // 
-            // guna2Elipse1
-            // 
-            guna2Elipse1.BorderRadius = 30;
-            guna2Elipse1.TargetControl = dgv_lt;
             // 
             // avatar
             // 
@@ -149,15 +152,73 @@
             save.Text = "Lưu";
             save.UseColumnTextForButtonValue = true;
             // 
+            // guna2Elipse1
+            // 
+            guna2Elipse1.BorderRadius = 30;
+            guna2Elipse1.TargetControl = dgv_lt;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(btn_hsl);
+            panel1.Controls.Add(btn_dlt);
+            panel1.Location = new Point(1102, 242);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(170, 354);
+            panel1.TabIndex = 2;
+            // 
+            // btn_hsl
+            // 
+            btn_hsl.BorderRadius = 40;
+            btn_hsl.CustomizableEdges = customizableEdges1;
+            btn_hsl.DisabledState.BorderColor = Color.DarkGray;
+            btn_hsl.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_hsl.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_hsl.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_hsl.Enabled = false;
+            btn_hsl.Font = new Font("Comic Sans MS", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_hsl.ForeColor = Color.White;
+            btn_hsl.Location = new Point(-58, 170);
+            btn_hsl.Name = "btn_hsl";
+            btn_hsl.Padding = new Padding(50, 0, 0, 0);
+            btn_hsl.ShadowDecoration.BorderRadius = 0;
+            btn_hsl.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btn_hsl.Size = new Size(201, 79);
+            btn_hsl.TabIndex = 1;
+            btn_hsl.Text = "Hồ sơ   đã lưu";
+            btn_hsl.Click += btn_Click;
+            // 
+            // btn_dlt
+            // 
+            btn_dlt.BorderRadius = 40;
+            btn_dlt.CustomizableEdges = customizableEdges3;
+            btn_dlt.DisabledState.BorderColor = Color.DarkGray;
+            btn_dlt.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_dlt.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_dlt.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_dlt.FillColor = Color.FromArgb(255, 73, 102);
+            btn_dlt.Font = new Font("Comic Sans MS", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_dlt.ForeColor = Color.White;
+            btn_dlt.Location = new Point(-58, 29);
+            btn_dlt.Name = "btn_dlt";
+            btn_dlt.Padding = new Padding(50, 0, 0, 0);
+            btn_dlt.ShadowDecoration.BorderRadius = 0;
+            btn_dlt.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btn_dlt.Size = new Size(201, 79);
+            btn_dlt.TabIndex = 0;
+            btn_dlt.Text = "Duyệt   lưu trữ";
+            btn_dlt.Click += btn_Click;
+            // 
             // UC_LT
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(247, 247, 239);
+            Controls.Add(panel1);
             Controls.Add(dgv_lt);
             Name = "UC_LT";
-            Size = new Size(1241, 766);
+            Size = new Size(1295, 766);
             ((System.ComponentModel.ISupportInitialize)dgv_lt).EndInit();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -169,5 +230,8 @@
         private DataGridViewTextBoxColumn no;
         private DataGridViewTextBoxColumn status;
         private DataGridViewButtonColumn save;
+        private Panel panel1;
+        private Guna.UI2.WinForms.Guna2Button btn_hsl;
+        private Guna.UI2.WinForms.Guna2Button btn_dlt;
     }
 }

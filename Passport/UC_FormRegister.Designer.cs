@@ -97,7 +97,7 @@
             // 
             // btn_deny
             // 
-            btn_deny.BorderRadius = 30;
+            btn_deny.BorderRadius = 28;
             btn_deny.CustomizableEdges = customizableEdges1;
             btn_deny.DisabledState.BorderColor = Color.DarkGray;
             btn_deny.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -136,7 +136,7 @@
             // 
             // btn_duyet
             // 
-            btn_duyet.BorderRadius = 30;
+            btn_duyet.BorderRadius = 28;
             btn_duyet.CustomizableEdges = customizableEdges3;
             btn_duyet.DisabledState.BorderColor = Color.DarkGray;
             btn_duyet.DisabledState.CustomBorderColor = Color.DarkGray;

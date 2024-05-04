@@ -58,7 +58,7 @@ namespace Passport
                     conn.Open();
                     string query = "";
                     if (Main.xt) query = "select * from Form_Register where trave = 0 and trangthai = 0";
-                    else query = "select * from Form_Register where xacthuc = 1";
+                    else query = "select * from Form_Register where xacthuc = 1 and trave = 0";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         SqlDataAdapter adapter = new SqlDataAdapter(cmd);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,13 +19,14 @@ namespace Passport
             InitializeComponent();
             Load_Data();
         }
-
+        public bool dlt = true;
+        public bool hsl = false;
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // Kiểm tra xem sự kiện được kích hoạt bởi ô chứa nút
             if (dgv_lt.Columns[3].Name == "save")
             {
-                DataGridViewCell cell = dgv_lt.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                DataGridViewCell cell = dgv_lt.Rows[e.RowIndex].Cells[1];
                 //string connectionString = @"Data Source=ALEXANDER\SQLEXPRESS;Initial Catalog=Passport;User Id=" + Login.username + ";Password=" + Login.pass;
                 try
                 {
@@ -34,20 +36,36 @@ namespace Passport
                         string query = "select * from Form_Register where shs = @so";
                         using (SqlCommand cmd = new SqlCommand(query, conn))
                         {
-                            cmd.Parameters.AddWithValue("@so", cell.Value.ToString());
-                            using(SqlDataReader reader = cmd.ExecuteReader())
+                            string tmp = cell.Value.ToString();
+                            string value = "";
+                            for (int i = tmp.Length - 1; i >= 0; --i)
                             {
-                                if (!reader.Read())
+                                if ((tmp[i] != ' ')) value += tmp[i];
+                                else break;
+                            }
+                            tmp = value;
+
+                            value = "";
+                            for (int i = tmp.Length - 1; i >= 0; --i)
+                            {
+                                value += tmp[i];
+                            }
+                            cmd.Parameters.AddWithValue("@so", decimal.Parse(value));
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                if (reader.Read())
                                 {
-                                    int so = (int)reader["shs"];
+                                    string so = reader["shs"].ToString();
+
                                     string hoten = (string)reader["hoten"];
                                     string dc = (string)reader["diachi"];
                                     bool gt = (bool)reader["gioitinh"];
-                                    DateOnly dt = (DateOnly)reader["ngaysinh"];
+                                    DateTime dt = (DateTime)reader["ngaysinh"];
                                     string cccd = (string)reader["so_cccd"];
                                     string sdt = (string)reader["sdt"];
                                     string email = (string)reader["email"];
                                     reader.Close();
+
                                     query = "insert into Luutru Values(@so, @hoten, @dc, @gt, @dt, @cccd, @sdt, @email)";
                                     using (SqlCommand cmd_insert = new SqlCommand(query, conn))
                                     {
@@ -59,18 +77,23 @@ namespace Passport
                                         cmd_insert.Parameters.AddWithValue("@cccd", cccd);
                                         cmd_insert.Parameters.AddWithValue("@sdt", sdt);
                                         cmd_insert.Parameters.AddWithValue("@email", email);
-                                        int rowsAffected = cmd.ExecuteNonQuery();
+                                        int rowsAffected = cmd_insert.ExecuteNonQuery();
 
                                         if (rowsAffected > 0)
                                         {
                                             query = "update Form_Register set trave = 1 where shs = @so";
-                                            using (SqlCommand cmd_update = new SqlCommand(query,conn))
+                                            using (SqlCommand cmd_update = new SqlCommand(query, conn))
                                             {
                                                 cmd_update.Parameters.AddWithValue("@so", so);
-                                                rowsAffected = cmd.ExecuteNonQuery();
+                                                rowsAffected = cmd_update.ExecuteNonQuery();
                                                 if (rowsAffected > 0)
                                                 {
                                                     MessageBox.Show("Lưu hồ sơ thành công!");
+                                                    Load_Data();
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("Lưu hồ sơ thất bại!");
                                                 }
                                             }
                                         }
@@ -130,6 +153,36 @@ namespace Passport
             }
         }
 
-        
+        private void btn_Click(object sender, EventArgs e)
+        {
+            dlt = !dlt;
+            hsl = !hsl;
+            if (dlt)
+            {
+                btn_dlt.FillColor = Color.FromArgb(255, 73, 102);
+                btn_dlt.HoverState.FillColor = Color.FromArgb(255, 73, 102);
+                btn_dlt.HoverState.BorderColor = Color.FromArgb(255, 73, 102);
+            }
+            else
+            {
+                btn_dlt.FillColor = Color.FromArgb(94, 148, 255);
+                btn_dlt.HoverState.FillColor = Color.FromArgb(94, 148, 255);
+                btn_dlt.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            }
+
+            if (hsl)
+            {
+                btn_hsl.FillColor = Color.FromArgb(255, 73, 102);
+                btn_hsl.HoverState.FillColor = Color.FromArgb(255, 73, 102);
+                btn_hsl.HoverState.BorderColor = Color.FromArgb(255, 73, 102);
+            }
+            else
+            {
+                btn_hsl.FillColor = Color.FromArgb(94, 148, 255);
+                btn_hsl.HoverState.FillColor = Color.FromArgb(94, 148, 255);
+                btn_hsl.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            }
+        }
+
     }
 }
