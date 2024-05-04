@@ -39,10 +39,10 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             dgv_gs = new Guna.UI2.WinForms.Guna2DataGridView();
-            bp = new DataGridViewTextBoxColumn();
             hs = new DataGridViewTextBoxColumn();
             tt = new DataGridViewTextBoxColumn();
             xt = new DataGridViewTextBoxColumn();
+            time = new DataGridViewTextBoxColumn();
             panel1 = new Panel();
             btn_lt = new Guna.UI2.WinForms.Guna2Button();
             btn_xd = new Guna.UI2.WinForms.Guna2Button();
@@ -67,10 +67,10 @@
             dgv_gs.ColumnHeadersHeight = 4;
             dgv_gs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dgv_gs.ColumnHeadersVisible = false;
-            dgv_gs.Columns.AddRange(new DataGridViewColumn[] { bp, hs, tt, xt });
+            dgv_gs.Columns.AddRange(new DataGridViewColumn[] { hs, tt, xt, time });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
@@ -105,13 +105,6 @@
             dgv_gs.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dgv_gs.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             // 
-            // bp
-            // 
-            bp.HeaderText = "Bộ phận";
-            bp.MinimumWidth = 6;
-            bp.Name = "bp";
-            bp.ReadOnly = true;
-            // 
             // hs
             // 
             hs.HeaderText = "Hồ sơ";
@@ -132,6 +125,12 @@
             xt.MinimumWidth = 6;
             xt.Name = "xt";
             xt.ReadOnly = true;
+            // 
+            // time
+            // 
+            time.HeaderText = "Thời gian";
+            time.MinimumWidth = 6;
+            time.Name = "time";
             // 
             // panel1
             // 
@@ -227,14 +226,14 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2DataGridView dgv_gs;
-        private DataGridViewTextBoxColumn bp;
-        private DataGridViewTextBoxColumn hs;
-        private DataGridViewTextBoxColumn tt;
-        private DataGridViewTextBoxColumn xt;
         private Panel panel1;
         private Guna.UI2.WinForms.Guna2Button btn_xt;
         private Guna.UI2.WinForms.Guna2Button btn_xd;
         private Guna.UI2.WinForms.Guna2Button btn_lt;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private DataGridViewTextBoxColumn hs;
+        private DataGridViewTextBoxColumn tt;
+        private DataGridViewTextBoxColumn xt;
+        private DataGridViewTextBoxColumn time;
     }
 }

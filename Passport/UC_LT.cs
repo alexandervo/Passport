@@ -26,8 +26,7 @@ namespace Passport
             // Kiểm tra xem sự kiện được kích hoạt bởi ô chứa nút
             if (dgv_lt.Columns[3].Name == "save")
             {
-                DataGridViewCell cell = dgv_lt.Rows[e.RowIndex].Cells[1];
-                //string connectionString = @"Data Source=ALEXANDER\SQLEXPRESS;Initial Catalog=Passport;User Id=" + Login.username + ";Password=" + Login.pass;
+                DataGridViewCell cell = dgv_lt.Rows[e.RowIndex].Cells[1];              
                 try
                 {
                     using (SqlConnection conn = new SqlConnection(Main.connectionString))
@@ -113,7 +112,6 @@ namespace Passport
         public void Load_Data()
         {
             dgv_lt.Rows.Clear();
-            string connectionString = @"Data Source=ALEXANDER\SQLEXPRESS;Initial Catalog=Passport;User Id=" + Login.username + ";Password=" + Login.pass;
             try
             {
                 using (SqlConnection conn = new SqlConnection(Main.connectionString))

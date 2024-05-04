@@ -16,6 +16,7 @@ namespace Passport
         public UC_GS()
         {
             InitializeComponent();
+            Load_Data();
         }
 
         public bool check_xt = true;
@@ -66,6 +67,7 @@ namespace Passport
                 btn_lt.HoverState.FillColor = Color.FromArgb(94, 148, 255);
                 btn_lt.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             }
+            Load_Data();
         }
 
         private void btn_xt_Click(object sender, EventArgs e)
@@ -95,20 +97,24 @@ namespace Passport
         public void Load_Data()
         {
             dgv_gs.Rows.Clear();
-            string connectionString = @"Data Source=ALEXANDER\SQLEXPRESS;Initial Catalog=Passport;User Id=" + Login.username + ";Password=" + Login.pass;
+            string bp = "";
+            if (check_xt) bp = "xt";
+            if (check_xd) bp = "xd";
+            if (check_lt) bp = "lt";
             try
             {
                 using (SqlConnection conn = new SqlConnection(Main.connectionString))
                 {
                     conn.Open();
-                    string query = "select * from GiamSat where bp = @bp";
+                    string query = "select hs, tt, nv, dt from GiamSat where bp = @bp";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
+                        cmd.Parameters.AddWithValue("@bp", bp);
                         SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                         DataSet ds = new DataSet();
-                        adapter.Fill(ds, "Form_Register");
+                        adapter.Fill(ds, "GiamSat");
 
-                        DataTable dataTable = ds.Tables["Form_Register"];
+                        DataTable dataTable = ds.Tables["GiamSat"];
                         // Lấy số lượng hàng trong DataTable
                         int rowCount = dataTable.Rows.Count;
 
@@ -116,13 +122,17 @@ namespace Passport
                         for (int i = 0; i < rowCount; ++i)
                         {
                             DataRow row = dataTable.Rows[i];
-                            string so = "Hồ sơ " + row["shs"].ToString();
-                          
-                            string tt = (bool)row["trangthai"] ? "Đã duyệt" : "Chưa duyệt";
-                          
+                            string so = "Hồ sơ " + row["hs"].ToString();
+                            string tt = "";
+                            if ((string)row["tt"] == "l") tt = "Đã lưu";
+                            else if ((string)row["tt"] == "t") tt = "Trả về";
+                            else if ((string)row["tt"] == "x") tt = "Đã xác thực";
+                            else if ((string)row["tt"] ==  "d") tt = "Đã xét duyệt";
+                            string nd = (string)row["nv"];                          
+                            DateTime dt = (DateTime)row["dt"];
 
                             // Thêm dữ liệu vào DataGridView
-                            dgv_gs.Rows.Add(so, tt);
+                            dgv_gs.Rows.Add(so, tt, nd, dt);
 
                         }
                         conn.Close();
