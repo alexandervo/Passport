@@ -322,8 +322,7 @@
             // 
             // UC_FormRegister
             // 
-            AutoScaleDimensions = new SizeF(9F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.FromArgb(247, 247, 239);
             Controls.Add(label7);
             Controls.Add(guna2Panel1);

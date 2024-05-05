@@ -74,11 +74,11 @@
             // 
             label1.Font = new Font("Comic Sans MS", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(15, 24);
+            label1.Location = new Point(3, 24);
             label1.Name = "label1";
-            label1.Size = new Size(52, 409);
+            label1.Size = new Size(80, 409);
             label1.TabIndex = 0;
-            label1.Text = "Passport";
+            label1.Text = " P\r\n a \r\n s \r\n s \r\n p \r\n o \r\n r \r\n t";
             // 
             // txt_user
             // 
@@ -207,8 +207,7 @@
             // 
             // Login
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.FromArgb(247, 247, 239);
             ClientSize = new Size(502, 442);
             Controls.Add(btn_hide_pw);
