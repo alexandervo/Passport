@@ -22,11 +22,13 @@
             echo "FUCKING EMPTY";
         } else {
             $hoten_Data = filter_input(INPUT_POST, "hoten_user_data", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $hoten_Data = $_POST["hoten_user_data"];
         }
         if (empty($_POST["diachi_user_data"])) {
             $diachi_Data_Err_Msg = "<p class='warning'>*Xin vui lòng điền diachi*</p>";
         } else {
             $diachi_Data = filter_input(INPUT_POST, "diachi_user_data", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $diachi_Data = $_POST["diachi_user_data"];
         }
         if (empty($_POST["gioitinh_user_data"])) {
             $gioitinh_Data_Err_Msg = "<p class='warning'>*Xin vui lòng điền gioitinh*</p>";
@@ -135,7 +137,7 @@
             <?php echo $email_Data_Err_Msg . "\n" ?>
             <label>
                 Email:
-                <input type="text" name="email_user_data" value='email nè'>
+                <input type="text" name="email_user_data" value='sao nãy được mà đm, thiệt hông?'>
             </label>
 
             <input class="register-btn" type="submit" value="Đăng ký" name="registered">

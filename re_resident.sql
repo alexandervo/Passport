@@ -22,8 +22,8 @@ CREATE TABLE Form_Register
     trangthai BIT,
     xacthuc BIT,
     trave BIT,
-    hoten NVARCHAR(50) COLLATE Vietnamese_CI_AS NOT NULL,
-    diachi NVARCHAR(100) COLLATE Vietnamese_CI_AS NOT NULL,
+    hoten NVARCHAR(50) COLLATE Latin1_General_CI_AS NOT NULL,
+    diachi NVARCHAR(100) COLLATE Latin1_General_CI_AS NOT NULL,
     gioitinh BIT NOT NULL,
     ngaysinh DATE NOT NULL,
     so_cccd VARCHAR(12) NOT NULL,
@@ -79,7 +79,6 @@ INSERT INTO Resident_data VALUES
 	('000000000006', N'Phạm Văn Nghĩa', '1999-03-06', 0, N'Việt Nam', N'Huế', N'41 Cát Linh, Q. Đống Đa, Hà Nội'),
 	('000000000007', N'Nguyễn Hoàng Minh Khôi', '2001-01-02', 0, N'Việt Nam',N'Hà Nội', N'10 Lê Thánh Tông, Q. Hoàn Kiếm, Hà Nội'),
 	('000000000008', N'Thân Lê Ngọc Xuyến', '2003-05-10', 1, N'Việt Nam', N'Hải Phòng', N' 86 Trần Nhân Tông, Q. Hai Bà Trưng, Hà Nội')
-
 
 INSERT INTO Form_Register VALUES
 	(0,0,0, N'Phạm Lê Đức Anh', N'123A đường Lý Thường Kiệt, Phường 10, Quận 5, TPHCM', 0, '1988-02-20', '000000000001', '0862633127', 'phamleducanh@gmail.com'),
@@ -151,7 +150,7 @@ BEGIN
 	INSERT INTO GiamSat VALUES (@bp, @hs, @tt, SUSER_NAME(), GETDATE())
 END
 
-DROP TRIGGER Audit_Update
+-- DROP TRIGGER Audit_Update
 
 
 -- các lệnh để test thui 
