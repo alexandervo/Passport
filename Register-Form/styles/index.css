@@ -1,0 +1,118 @@
+@import url("https: //fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    height: 100vh;
+    background-color: rgb(255, 243, 249);
+    padding-top: calc(50vh - 20vh);
+}
+
+.panel {
+    /* background-color: burlywood; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 60%;
+    margin: auto;
+    border-radius: 24px;
+    border: #000 solid 3px;
+}
+
+.title {
+    flex: 1;
+    /* background-color: rgb(135, 152, 222); */
+    text-align: center;
+    margin-top: 40px;
+}
+
+.options {
+    flex: 4;
+    /* background-color: rgb(222, 135, 139); */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    gap: 40px;
+}
+
+.option-select {
+    text-decoration: none;
+    color: #000;
+    background-color: #fff;
+    padding: 20px;
+    font-size: 16px;
+    border-radius: 32px;
+    min-width: 160px;
+    border: #000 solid 1px;
+    transition: 200ms ease-in-out;
+}
+
+.option-select:hover {
+    color: #fff;
+    background-color: #000;
+    border: #fff solid 1px;
+}
+
+.form-container {
+    /* background-color: burlywood; */
+    width: 40%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+    border: #000000 solid 1px;
+}
+
+.form-container .title {
+    margin: 0;
+    font-size: 36px;
+}
+
+.form-container > form {
+    display: flex;
+    flex-direction: column;
+    /* background-color: yellowgreen; */
+    /* text-align: center; */
+}
+
+.form-container > form > label {
+    /* background-color: rgb(255, 217, 255); */
+    padding: 20px;
+}
+
+.form-container > form > label > input {
+    /* background-color: plum; */
+    padding: 12px;
+    min-width: 280px;
+    float: right;
+}
+
+.form-container > form > label.sex {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.form-container > form > label.sex > .sex-selection {
+    display: flex;
+    justify-content: space-around;
+    min-width: 280px;
+    /* background-color: antiquewhite; */
+}
+
+.register-btn {
+    padding: 16px;
+}
+
+.warning {
+    color: red;
+}
