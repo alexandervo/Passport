@@ -4,6 +4,7 @@ go
 use Passport
 go
 
+delete from Form_Register
 
 create table Resident_data
 (
@@ -92,6 +93,7 @@ insert into Form_Register values
 (0,0,0, N'Nguyễn Hoàng Minh Khôi', N'10 Lê Thánh Tông, Q. Hoàn Kiếm, Hà Nội', 0, '2001-01-02', '000000000007', '0902231136', 'minhkhoi@gmail.com'),
 (0,0,0, N'Thân Lê Ngọc Xuyến', N' 86 Trần Nhân Tông, Q. Hai Bà Trưng, Hà Nội', 1, '2003-05-10', '000000000008', '0868683321', 'ngocxuyenthanle2003@gmail.com')
 
+delete from Form_Register
 
 --tạo user các nhân viên 
 create login namnh with password = 'namnh';
@@ -171,5 +173,5 @@ go
 select * from Form_Register where trave = 0 and trangthai = 0;
 select * from GiamSat;
 
-
+delete from GiamSat
 
