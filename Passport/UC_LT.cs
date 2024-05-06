@@ -151,12 +151,55 @@ namespace Passport
             }
         }
 
+        public void Load_Data_Saved()
+        {
+            dgv_lt.Rows.Clear();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(Main.connectionString))
+                {
+                    conn.Open();
+                    string query = "select shs, gioitinh, trangthai, xacthuc, trave from Form_Register where xacthuc = 1 and trave = 1";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds, "Form_Register");
+
+                        DataTable dataTable = ds.Tables["Form_Register"];
+                        // Lấy số lượng hàng trong DataTable
+                        int rowCount = dataTable.Rows.Count;
+
+                        // Lặp qua từng DataRow trong DataTable
+                        for (int i = 0; i < rowCount; ++i)
+                        {
+                            DataRow row = dataTable.Rows[i];
+                            string so = "Hồ sơ " + row["shs"].ToString();
+                            bool gt = (bool)row["gioitinh"];
+                            string tt = (bool)row["trangthai"] ? "Đã duyệt" : "Chưa duyệt";
+                            Image img = gt ? Properties.Resources.girl1 : Properties.Resources.boy1;
+
+                            // Thêm dữ liệu vào DataGridView
+                            dgv_lt.Rows.Add(img, so, tt);
+
+                        }
+                        conn.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading data: " + ex.Message);
+            }
+        }
+
         private void btn_Click(object sender, EventArgs e)
         {
             dlt = !dlt;
             hsl = !hsl;
             if (dlt)
             {
+                hsl = false;
                 btn_dlt.FillColor = Color.FromArgb(255, 73, 102);
                 btn_dlt.HoverState.FillColor = Color.FromArgb(255, 73, 102);
                 btn_dlt.HoverState.BorderColor = Color.FromArgb(255, 73, 102);
@@ -170,6 +213,8 @@ namespace Passport
 
             if (hsl)
             {
+                dlt = false;
+                Load_Data_Saved();
                 btn_hsl.FillColor = Color.FromArgb(255, 73, 102);
                 btn_hsl.HoverState.FillColor = Color.FromArgb(255, 73, 102);
                 btn_hsl.HoverState.BorderColor = Color.FromArgb(255, 73, 102);

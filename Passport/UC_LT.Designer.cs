@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
@@ -44,7 +43,6 @@
             no = new DataGridViewTextBoxColumn();
             status = new DataGridViewTextBoxColumn();
             save = new DataGridViewButtonColumn();
-            guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             panel1 = new Panel();
             btn_hsl = new Guna.UI2.WinForms.Guna2Button();
             btn_dlt = new Guna.UI2.WinForms.Guna2Button();
@@ -152,11 +150,6 @@
             save.Text = "Lưu";
             save.UseColumnTextForButtonValue = true;
             // 
-            // guna2Elipse1
-            // 
-            guna2Elipse1.BorderRadius = 30;
-            guna2Elipse1.TargetControl = dgv_lt;
-            // 
             // panel1
             // 
             panel1.Controls.Add(btn_hsl);
@@ -174,7 +167,6 @@
             btn_hsl.DisabledState.CustomBorderColor = Color.DarkGray;
             btn_hsl.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btn_hsl.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btn_hsl.Enabled = false;
             btn_hsl.Font = new Font("Comic Sans MS", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_hsl.ForeColor = Color.White;
             btn_hsl.Location = new Point(-58, 170);
@@ -224,7 +216,6 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2DataGridView dgv_lt;
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private DataGridViewImageColumn avatar;
         private DataGridViewTextBoxColumn no;
         private DataGridViewTextBoxColumn status;
