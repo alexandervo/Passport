@@ -17,20 +17,20 @@ create table Resident_data
 	diachi nvarchar(100) not null,
 	constraint pk_cccd primary key (so_cccd)
 )
-
+drop table Form_Register
 create table Form_Register
 (
 	shs numeric identity,
 	trangthai bit,
 	xacthuc bit,
 	trave bit,
-	hoten nvarchar(50) not null,
-	diachi nvarchar(100) not null,
+	hoten nvarchar(50) COLLATE Latin1_General_CI_AS not null,
+	diachi nvarchar(100) COLLATE Latin1_General_CI_AS not null,
 	gioitinh bit not null,
 	ngaysinh date not null,
 	so_cccd varchar(12) not null,
 	sdt varchar(10) not null,
-	email nvarchar(100),
+	email varchar(100),
 )
 
 create table Nhanvien
@@ -93,7 +93,7 @@ insert into Form_Register values
 (0,0,0, N'Nguyễn Hoàng Minh Khôi', N'10 Lê Thánh Tông, Q. Hoàn Kiếm, Hà Nội', 0, '2001-01-02', '000000000007', '0902231136', 'minhkhoi@gmail.com'),
 (0,0,0, N'Thân Lê Ngọc Xuyến', N' 86 Trần Nhân Tông, Q. Hai Bà Trưng, Hà Nội', 1, '2003-05-10', '000000000008', '0868683321', 'ngocxuyenthanle2003@gmail.com')
 
-delete from Form_Register
+delete from Luutru
 
 --tạo user các nhân viên 
 create login namnh with password = 'namnh';
@@ -132,7 +132,7 @@ grant select on Nhanvien to danglta;
 grant select, insert on Luutru to danglta
 
 grant select on Nhanvien to linhnta;
-grant select, update on Form_Register to linhnta;
+grant select on GiamSat to linhnta;
 
 --tạo trigger
 create trigger Audit_Update on Form_Register
@@ -144,15 +144,16 @@ begin
 	select 
 		@tt = case
 			when trave = 1 and trangthai = 1 and xacthuc = 1 then 'l'
-			when trave = 1 and (trangthai = 1 or xacthuc = 1) then 't'
+			when trave = 1 and (trangthai = 0 or xacthuc = 0) then 't'
 			when trave = 0 and trangthai = 0 and xacthuc = 1 then 'x'
 			when trave = 0 and trangthai = 1 and xacthuc = 1 then 'd'
+			else 'n'
 			end
 	from inserted
 	declare @hs varchar(15)
 	select @hs = cast(shs as varchar(15)) from inserted
 	select @bp = bophan from Nhanvien where tendn = SUSER_NAME()
-	insert into GiamSat values (@bp, @hs, @tt, SUSER_NAME(), GETDATE())
+	if @tt != 'n' insert into GiamSat values (@bp, @hs, @tt, SUSER_NAME(), GETDATE())
 end
 
 drop trigger Audit_Update

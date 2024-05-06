@@ -1,4 +1,6 @@
-﻿namespace Passport
+﻿using Guna.UI2.WinForms.Suite;
+
+namespace Passport
 {
     partial class Main
     {
@@ -42,6 +44,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel1 = new Panel();
             btn_gs = new Guna.UI2.WinForms.Guna2Button();
             btn_lt = new Guna.UI2.WinForms.Guna2Button();
@@ -56,6 +60,7 @@
             guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(components);
             guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(components);
             btn_right_arrow = new Guna.UI2.WinForms.Guna2ImageButton();
+            btn_left_arrow = new Guna.UI2.WinForms.Guna2ImageButton();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox2).BeginInit();
             panel3.SuspendLayout();
@@ -264,16 +269,38 @@
             guna2Elipse3.BorderRadius = 50;
             guna2Elipse3.TargetControl = panel3;
             // 
+            // btn_left_arrow
+            // 
+            btn_left_arrow.CheckedState.ImageSize = new Size(64, 64);
+            btn_left_arrow.HoverState.Image = Properties.Resources.left_arrow_hover;
+            btn_left_arrow.HoverState.ImageSize = new Size(64, 64);
+            btn_left_arrow.Image = Properties.Resources.left_arrow;
+            btn_left_arrow.ImageOffset = new Point(0, 0);
+            btn_left_arrow.ImageRotate = 0F;
+            btn_left_arrow.Location = new Point(83, 548);
+            btn_left_arrow.Name = "btn_left_arrow";
+            btn_left_arrow.PressedState.ImageSize = new Size(64, 64);
+            btn_left_arrow.ShadowDecoration.CustomizableEdges = customizableEdges13;
+            btn_left_arrow.Size = new Size(89, 76);
+            btn_left_arrow.TabIndex = 3;
+            btn_left_arrow.Click += btn_left_arrow_Click;
+
+            // 
             // btn_right_arrow
             // 
-            btn_right_arrow.Image = (Image)resources.GetObject("btn_right_arrow.Image");
+            btn_right_arrow.CheckedState.ImageSize = new Size(64, 64);
+            btn_right_arrow.HoverState.Image = Properties.Resources.right_arrow_hover;
+            btn_right_arrow.HoverState.ImageSize = new Size(64, 64);
+            btn_right_arrow.Image = Properties.Resources.right_arrow;
             btn_right_arrow.ImageOffset = new Point(0, 0);
             btn_right_arrow.ImageRotate = 0F;
-            btn_right_arrow.Location = new Point(0, 0);
+            btn_right_arrow.Location = new Point(389, 548);
             btn_right_arrow.Name = "btn_right_arrow";
-            btn_right_arrow.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            btn_right_arrow.Size = new Size(64, 54);
-            btn_right_arrow.TabIndex = 0;
+            btn_right_arrow.PressedState.ImageSize = new Size(64, 64);
+            btn_right_arrow.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            btn_right_arrow.Size = new Size(89, 76);
+            btn_right_arrow.TabIndex = 2;
+            btn_right_arrow.Click += btn_right_arrow_Click;
             // 
             // Main
             // 
@@ -311,5 +338,7 @@
         private Guna.UI2.WinForms.Guna2Button btn_xd;
         private Guna.UI2.WinForms.Guna2Button btn_gs;
         private Guna.UI2.WinForms.Guna2Button btn_lt;
+        private Guna.UI2.WinForms.Guna2ImageButton btn_left_arrow;
+        private Guna.UI2.WinForms.Guna2ImageButton btn_right_arrow;
     }
 }

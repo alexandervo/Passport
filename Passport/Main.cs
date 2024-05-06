@@ -11,55 +11,11 @@ namespace Passport
         public Main()
         {
             InitializeComponent();
-            Arrow_Button();
             if (ad) xt = true;
             Menu();
-
         }
-        private Guna.UI2.WinForms.Guna2ImageButton btn_left_arrow;
-        private Guna.UI2.WinForms.Guna2ImageButton btn_right_arrow;
-        public void Arrow_Button()
-        {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            btn_left_arrow = new Guna.UI2.WinForms.Guna2ImageButton();
-            btn_right_arrow = new Guna.UI2.WinForms.Guna2ImageButton();
-            // 
-            // btn_left_arrow
-            // 
-            btn_left_arrow.CheckedState.ImageSize = new Size(64, 64);
-            btn_left_arrow.HoverState.Image = Properties.Resources.left_arrow_hover;
-            btn_left_arrow.HoverState.ImageSize = new Size(64, 64);
-            btn_left_arrow.Image = Properties.Resources.left_arrow;
-            btn_left_arrow.ImageOffset = new Point(0, 0);
-            btn_left_arrow.ImageRotate = 0F;
-            btn_left_arrow.Location = new Point(83, 548);
-            btn_left_arrow.Name = "btn_left_arrow";
-            btn_left_arrow.PressedState.ImageSize = new Size(64, 64);
-            btn_left_arrow.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            btn_left_arrow.Size = new Size(89, 76);
-            btn_left_arrow.TabIndex = 3;
-            btn_left_arrow.Click += btn_left_arrow_Click;
 
-            // 
-            // btn_right_arrow
-            // 
-            btn_right_arrow.CheckedState.ImageSize = new Size(64, 64);
-            btn_right_arrow.HoverState.Image = Properties.Resources.right_arrow_hover;
-            btn_right_arrow.HoverState.ImageSize = new Size(64, 64);
-            btn_right_arrow.Image = Properties.Resources.right_arrow;
-            btn_right_arrow.ImageOffset = new Point(0, 0);
-            btn_right_arrow.ImageRotate = 0F;
-            btn_right_arrow.Location = new Point(389, 548);
-            btn_right_arrow.Name = "btn_right_arrow";
-            btn_right_arrow.PressedState.ImageSize = new Size(64, 64);
-            btn_right_arrow.ShadowDecoration.CustomizableEdges = customizableEdges13;
-            btn_right_arrow.Size = new Size(89, 76);
-            btn_right_arrow.TabIndex = 2;
-            btn_right_arrow.Click += btn_right_arrow_Click;
 
-        }
         public static bool xt = (Login.bp == "xt") ? true : false;
         public static bool xd = (Login.bp == "xd") ? true : false;
         public static bool lt = (Login.bp == "lt") ? true : false;

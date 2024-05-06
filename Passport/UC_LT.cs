@@ -20,13 +20,13 @@ namespace Passport
             Load_Data();
         }
         public bool dlt = true;
-        public bool hsl = true;
+        public bool hsl = false;
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // Kiểm tra xem sự kiện được kích hoạt bởi ô chứa nút
-            if (dgv_lt.Columns[3].Name == "save")
+            if (dgv_dlt.Columns[3].Name == "save")
             {
-                DataGridViewCell cell = dgv_lt.Rows[e.RowIndex].Cells[1];              
+                DataGridViewCell cell = dgv_dlt.Rows[e.RowIndex].Cells[1];              
                 try
                 {
                     using (SqlConnection conn = new SqlConnection(Main.connectionString))
@@ -111,7 +111,9 @@ namespace Passport
         }
         public void Load_Data()
         {
-            dgv_lt.Rows.Clear();
+            if(dgv_lt != null) panel2.Controls.Clear();
+            panel2.Controls.Add(dgv_dlt);
+            dgv_dlt.Rows.Clear();
             try
             {
                 using (SqlConnection conn = new SqlConnection(Main.connectionString))
@@ -138,7 +140,7 @@ namespace Passport
                             Image img = gt ? Properties.Resources.girl1 : Properties.Resources.boy1;
 
                             // Thêm dữ liệu vào DataGridView
-                            dgv_lt.Rows.Add(img, so, tt);
+                            dgv_dlt.Rows.Add(img, so, tt);
 
                         }
                         conn.Close();
@@ -153,20 +155,22 @@ namespace Passport
 
         public void Load_Data_Saved()
         {
+            if (dgv_dlt != null) panel2.Controls.Clear();
+            panel2.Controls.Add(dgv_lt);
             dgv_lt.Rows.Clear();
             try
             {
                 using (SqlConnection conn = new SqlConnection(Main.connectionString))
                 {
                     conn.Open();
-                    string query = "select shs, gioitinh, trangthai, xacthuc, trave from Form_Register where xacthuc = 1 and trave = 1";
+                    string query = "select * from Luutru";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                         DataSet ds = new DataSet();
-                        adapter.Fill(ds, "Form_Register");
+                        adapter.Fill(ds, "Luutru");
 
-                        DataTable dataTable = ds.Tables["Form_Register"];
+                        DataTable dataTable = ds.Tables["Luutru"];
                         // Lấy số lượng hàng trong DataTable
                         int rowCount = dataTable.Rows.Count;
 
@@ -174,13 +178,13 @@ namespace Passport
                         for (int i = 0; i < rowCount; ++i)
                         {
                             DataRow row = dataTable.Rows[i];
-                            string so = "Hồ sơ " + row["shs"].ToString();
+                            string so = "Hồ sơ " + (string)row["shs"];
                             bool gt = (bool)row["gioitinh"];
-                            string tt = (bool)row["trangthai"] ? "Đã duyệt" : "Chưa duyệt";
+                            //string tt = (bool)row["trangthai"] ? "Đã duyệt" : "Chưa duyệt";
                             Image img = gt ? Properties.Resources.girl1 : Properties.Resources.boy1;
 
                             // Thêm dữ liệu vào DataGridView
-                            dgv_lt.Rows.Add(img, so, tt);
+                            dgv_lt.Rows.Add(img, so);
 
                         }
                         conn.Close();
@@ -199,7 +203,8 @@ namespace Passport
             hsl = !hsl;
             if (dlt)
             {
-                hsl = false;
+                //hsl = false;
+                Load_Data();
                 btn_dlt.FillColor = Color.FromArgb(255, 73, 102);
                 btn_dlt.HoverState.FillColor = Color.FromArgb(255, 73, 102);
                 btn_dlt.HoverState.BorderColor = Color.FromArgb(255, 73, 102);
@@ -213,7 +218,7 @@ namespace Passport
 
             if (hsl)
             {
-                dlt = false;
+                //dlt = false;
                 Load_Data_Saved();
                 btn_hsl.FillColor = Color.FromArgb(255, 73, 102);
                 btn_hsl.HoverState.FillColor = Color.FromArgb(255, 73, 102);
