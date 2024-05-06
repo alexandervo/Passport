@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    border-collapse: collapse;
+}
+
+:root {
+    --dark: #0d0d0d;
+    --light: #e4e4e4;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #e4e4e4;
+}
+
+/* COMMON CUSTOM CLASSES */
+.hidden {
+    display: none !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.salmon {
+    background-color: salmon;
+    color: #fff;
+}
+
+.notYet {
+    position: relative;
+}
+
+.notYet:hover:after {
+    content: "This function is not yet supported";
+    position: absolute;
+    z-index: 10;
+    background-color: var(--dark);
+    color: var(--light);
+    padding: 4px;
+    width: 240px;
+    font-size: 14px;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: -32px;
+}
+
+
+
+
+.display_info {
+    display: flex;
+    background-color: rgb(198, 207, 221);
+    padding: 20px;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.same-row {
+    display: flex;
+    background-color: rgb(198, 223, 223);
+}
+
+.checker {
+    background-color: rgb(49, 111, 111);
+    height: 100px;
+    width: 200px;
+}
+
+table.data-table {
+    margin: 8px;
+    border: 1px solid #0d0d0d;
+    max-width: 800px;
+}
+
+table.data-table.large {
+    
+}
+
+table.data-table > thead > tr {
+    border: 3px solid rgb(11, 79, 73);
+}
+
+table.data-table > thead > tr > th {
+    border-bottom: 2px solid #242424;
+    padding: 6px;
+    /* background-color: aqua; */
+}
+
+table.data-table > tbody > tr > td {
+    border-right: 1px solid #242424;
+    padding: 4px;
+    /* background-color: salmon; */
+}
+
+table.data-table .action-btn {
+    padding: 4px 8px;
+    background-color: antiquewhite;
+    color: #000;
+    text-decoration: none;
+    display: inline-block;
+    border: 2px solid #000;
+}
+
+
+
+
+
+
+
+.form-container {
+    position: relative;
+    background-color: beige;
+    width: 75%;
+    padding: 16px;
+    padding-top: 64px;
+    margin: 48px auto;
+}
+
+.form-container .title {
+    position: absolute;
+    margin: 16px auto;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    font-weight: 800;
+    text-align: center;
+    width: 100%;
+}
+
+.form-container form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 20px;
+    position: relative;
+}
+
+.form-container form fieldset {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    grid-column: auto;
+    grid-row: span 4;
+    gap: 8px;
+}
+
+.form-container form fieldset legend {
+    padding: 0 6px;
+}
+
+.form-container form input,
+.form-container form textarea {
+    min-height: 20px;
+    padding: 8px;
+}
+
+.form-container form fieldset.ext-info label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+.form-container form label > input,
+.form-container form label > textarea {
+
+}
+
+.form-container form .bottom-right {
+    background-color: antiquewhite;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.form-container form input.btn {
+    position: relative;
+}
+
+.form-container form .warning {
+    color: rgb(255, 85, 85);
+}
+
+.half-pane {
+    flex: 1;
+}

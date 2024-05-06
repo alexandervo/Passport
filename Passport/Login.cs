@@ -24,7 +24,7 @@ namespace Passport
         public static string username = "";
         public static string pass = "";
         public static string bp = "";
-        public static string sql_server_name = "ALEXANDER\\SQLEXPRESS";
+        public static string sql_server_name = "MARCO-A315";
         public bool hide = true;
 
         // nút thoát 
