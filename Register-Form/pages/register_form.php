@@ -53,7 +53,7 @@
         if (empty($_POST["email_user_data"])) {
             $email_Data_Err_Msg = "<p class='warning'>*Xin vui lòng điền email*</p>";
         } else {
-            $email_Data = filter_input(INPUT_POST, "email_user_data", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $email_Data = $_POST["email_user_data"];
         }
     }
 
