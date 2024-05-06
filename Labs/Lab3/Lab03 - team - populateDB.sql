@@ -1,0 +1,40 @@
+﻿/*
+FILE SQL THU TU 3
+HOTEN - MASV: 
+	PHAN VU TUAN ANH - 47.01.104.045
+	LAI THI ANH DANG - 47.01.104.058
+	NGUYEN TRAN ANH LINH - 47.01.104.123
+	VO KIEN PHU - 47.01.104.160
+LAB: 03 - NHOM 
+NGAY: 05/04/2024
+*/
+
+USE QLSV
+GO
+
+INSERT INTO Lop(MALOP, TENLOP, MANV)
+			VALUES	('CNTT-K47', 'Cong nghe thong tin K47', NULL),
+					('TT-K47', 'Truyen thong K47', NULL),
+					('NNA-K47', 'Ngon ngu Anh K47', NULL),
+					('QLXD-K47', 'Quan ly xay dung K47', NULL)
+GO
+
+EXEC SP_INS_PUBLIC_SINHVIEN 'ST01', 'HOANG PHUONG AN', '2003-09-10', 'Xom Chieu', 'TT-K47', 'HPA', '111111'
+EXEC SP_INS_PUBLIC_SINHVIEN 'ST02', 'CAO HOANG DUY', '2003-10-29', 'Tran Xuan Soan', 'NNA-K47', 'CHD', '222222'
+EXEC SP_INS_PUBLIC_SINHVIEN 'ST03', 'VO HOANG KHA', '2003-10-20', 'Huynh Tan Phat', 'QLXD-K47', 'VHK', '333333'
+GO
+
+EXEC SP_INS_PUBLIC_NHANVIEN 'EM01', 'Employee 1', 'em01222@gmail.com', '13500', 'em01', 'password'
+EXEC SP_INS_PUBLIC_NHANVIEN 'EM02', 'Employee 2', 'em02333@gmail.com', '24200', 'em02', 'password'
+EXEC SP_INS_PUBLIC_NHANVIEN 'EM03', 'Employee 3', 'em03444@gmail.com', '55700', 'em03', 'password'
+GO
+
+EXEC SP_SEL_PUBLIC_NHANVIEN
+GO
+
+SELECT * FROM NhanVien
+SELECT * FROM Lop
+SELECT * FROM SinhVien
+SELECT * FROM HocPhan
+SELECT * FROM BangDiem
+GO
