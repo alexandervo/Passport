@@ -38,13 +38,13 @@ namespace Passport
                 btn_duyet.Text = "Duyệt";
             }
 
-            lbl_hoten.Text = hoten;
-            lbl_dc.Text = dc;
-            lbl_gt.Text = gt;
-            lbl_ns.Text = ns;
-            lbl_cccd.Text = cccd;
-            lbl_sdt.Text = sdt;
-            lbl_email.Text = email;
+            lbl_hoten.Text  = hoten;
+            lbl_dc.Text     = dc;
+            lbl_gt.Text     = gt;
+            lbl_ns.Text     = ns;
+            lbl_cccd.Text   = cccd;
+            lbl_sdt.Text    = sdt;
+            lbl_email.Text  = email;
         }
 
         // hàm để lấy thông tin form đăng ký từ cơ sở dữ liệu 
@@ -57,7 +57,8 @@ namespace Passport
                 {
                     conn.Open();
                     string query = "";
-                    if (Main.xt) query = "select * from Form_Register where trave = 0 and trangthai = 0";
+                    // if (Main.xt) query = "select * from Form_Register where trave = 0 and trangthai = 0";
+                    if (Main.xt) query = "select * from Form_Register where trave = 0"; // For debugging
                     else query = "select * from Form_Register where xacthuc = 1 and trave = 0";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {

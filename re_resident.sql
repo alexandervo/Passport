@@ -157,6 +157,7 @@ END
 SELECT * FROM Nhanvien
 SELECT * FROM Resident_data
 SELECT * FROM Form_Register
+SELECT * FROM LuuTru
 
 SELECT hoten FROM Nhanvien WHERE tendn= 'phuvk'
 DELETE FROM Form_Register WHERE;

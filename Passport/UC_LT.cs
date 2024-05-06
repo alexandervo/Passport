@@ -20,7 +20,7 @@ namespace Passport
             Load_Data();
         }
         public bool dlt = true;
-        public bool hsl = false;
+        public bool hsl = true;
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // Kiểm tra xem sự kiện được kích hoạt bởi ô chứa nút
