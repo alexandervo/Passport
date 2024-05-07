@@ -35,8 +35,8 @@ namespace Passport
         public void login()
         {
             // Lấy thông tin đăng nhập từ ô nhập
-            username = txt_user.Text;
-            pass = txt_pass.Text;
+            username = txt_user.Text.Replace(" ","");
+            pass = txt_pass.Text.Replace(" ", "");
             string connectionString = @"Data Source=" + sql_server_name + ";Initial Catalog=Passport;User Id=" + username + ";Password=" + pass;
 
             SqlConnection conn = new SqlConnection(connectionString);
