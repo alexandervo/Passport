@@ -117,4 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Tờ khai đề nghị cấp hộ chiếu (theo mẫu quy định).
+Ảnh thẻ rõ ràng, không bị khuất bộ phận khuôn mặt, phải đủ sáng, nền trắng và được chụp trong vòng 6 tháng gần nhất:
+Giấy tờ chứng minh nhân thân:
+- Thẻ Căn Cước Công Dân hoặc Chứng Minh Nhân Dân.
+- Giấy khai sinh (đối với trẻ em dưới 14 tuổi).
+- Sổ hộ khẩu(nếu có).
+- Giấy tờ chứng minh lý do cấp hộ chiếu.
+- Giấy ủy quyền (nếu nộp hồ sơ qua người được ủy quyền).</value>
+  </data>
 </root>

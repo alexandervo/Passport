@@ -92,7 +92,7 @@ namespace Passport
             btn_gs.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btn_gs.FillColor = Color.FromArgb(53, 45, 125);
             btn_gs.FocusedColor = Color.FromArgb(253, 192, 0);
-            btn_gs.Font = new Font("Century Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_gs.Font = new Font("VNF-Comic Sans", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_gs.ForeColor = Color.White;
             btn_gs.HoverState.BorderColor = Color.FromArgb(253, 192, 0);
             btn_gs.HoverState.FillColor = Color.FromArgb(253, 192, 0);
@@ -118,7 +118,7 @@ namespace Passport
             btn_lt.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btn_lt.FillColor = Color.FromArgb(53, 45, 125);
             btn_lt.FocusedColor = Color.FromArgb(253, 192, 0);
-            btn_lt.Font = new Font("Century Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_lt.Font = new Font("VNF-Comic Sans", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_lt.ForeColor = Color.White;
             btn_lt.HoverState.BorderColor = Color.FromArgb(253, 192, 0);
             btn_lt.HoverState.FillColor = Color.FromArgb(253, 192, 0);
@@ -145,7 +145,7 @@ namespace Passport
             btn_xd.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btn_xd.FillColor = Color.FromArgb(53, 45, 125);
             btn_xd.FocusedColor = Color.FromArgb(253, 192, 0);
-            btn_xd.Font = new Font("Century Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_xd.Font = new Font("VNF-Comic Sans", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_xd.ForeColor = Color.White;
             btn_xd.HoverState.BorderColor = Color.FromArgb(253, 192, 0);
             btn_xd.HoverState.FillColor = Color.FromArgb(253, 192, 0);
@@ -171,7 +171,7 @@ namespace Passport
             btn_exit.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btn_exit.FillColor = Color.FromArgb(53, 45, 125);
             btn_exit.FocusedColor = Color.FromArgb(253, 192, 0);
-            btn_exit.Font = new Font("Century Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_exit.Font = new Font("VNF-Comic Sans", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_exit.ForeColor = Color.White;
             btn_exit.HoverState.BorderColor = Color.FromArgb(253, 192, 0);
             btn_exit.HoverState.FillColor = Color.FromArgb(253, 192, 0);
@@ -216,12 +216,12 @@ namespace Passport
             // 
             // lbl_name
             // 
-            lbl_name.Font = new Font("Century Gothic", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_name.Font = new Font("VNF-Comic Sans", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_name.ForeColor = Color.White;
-            lbl_name.Location = new Point(21, 10);
+            lbl_name.Location = new Point(20, 3);
             lbl_name.Name = "lbl_name";
             lbl_name.RightToLeft = RightToLeft.No;
-            lbl_name.Size = new Size(170, 27);
+            lbl_name.Size = new Size(183, 48);
             lbl_name.TabIndex = 0;
             lbl_name.Text = "Staff's Name";
             // 
@@ -236,7 +236,7 @@ namespace Passport
             btn_xt.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btn_xt.FillColor = Color.FromArgb(253, 192, 0);
             btn_xt.FocusedColor = Color.FromArgb(253, 192, 0);
-            btn_xt.Font = new Font("Century Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_xt.Font = new Font("VNF-Comic Sans", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_xt.ForeColor = Color.White;
             btn_xt.HoverState.BorderColor = Color.FromArgb(253, 192, 0);
             btn_xt.HoverState.FillColor = Color.FromArgb(253, 192, 0);
@@ -246,7 +246,7 @@ namespace Passport
             btn_xt.ImageSize = new Size(50, 50);
             btn_xt.Location = new Point(-24, 156);
             btn_xt.Name = "btn_xt";
-            btn_xt.Padding = new Padding(35, 0, 0, 0);
+            btn_xt.Padding = new Padding(60, 0, 0, 0);
             btn_xt.ShadowDecoration.CustomizableEdges = customizableEdges11;
             btn_xt.Size = new Size(272, 57);
             btn_xt.TabIndex = 3;

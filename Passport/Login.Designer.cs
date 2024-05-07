@@ -133,20 +133,20 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Comic Sans MS", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Comic Sans MS", 10.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label2.Location = new Point(43, 108);
             label2.Name = "label2";
-            label2.Size = new Size(86, 22);
+            label2.Size = new Size(97, 24);
             label2.TabIndex = 13;
             label2.Text = "User name";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Comic Sans MS", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Comic Sans MS", 10.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label3.Location = new Point(43, 234);
             label3.Name = "label3";
-            label3.Size = new Size(74, 22);
+            label3.Size = new Size(83, 24);
             label3.TabIndex = 14;
             label3.Text = "Password";
             // 
@@ -159,12 +159,12 @@
             btn_login.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btn_login.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btn_login.FillColor = Color.FromArgb(255, 73, 102);
-            btn_login.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_login.Font = new Font("VNF-Comic Sans", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_login.ForeColor = Color.White;
             btn_login.Location = new Point(43, 360);
             btn_login.Name = "btn_login";
             btn_login.ShadowDecoration.CustomizableEdges = customizableEdges5;
-            btn_login.Size = new Size(137, 51);
+            btn_login.Size = new Size(144, 51);
             btn_login.TabIndex = 15;
             btn_login.Text = "Đăng nhập";
             btn_login.Click += btn_login_Click;
@@ -178,12 +178,12 @@
             btn_quit.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btn_quit.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btn_quit.FillColor = Color.FromArgb(255, 73, 102);
-            btn_quit.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_quit.Font = new Font("VNF-Comic Sans", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_quit.ForeColor = Color.White;
             btn_quit.Location = new Point(230, 360);
             btn_quit.Name = "btn_quit";
             btn_quit.ShadowDecoration.CustomizableEdges = customizableEdges3;
-            btn_quit.Size = new Size(137, 51);
+            btn_quit.Size = new Size(144, 51);
             btn_quit.TabIndex = 16;
             btn_quit.Text = "Thoát";
             btn_quit.Click += btn_quit_Click;

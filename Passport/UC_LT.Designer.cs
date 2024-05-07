@@ -94,7 +94,7 @@
             dgv_dlt.Name = "dgv_dlt";
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = SystemColors.Control;
-            dataGridViewCellStyle5.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.Font = new Font("VNF-Comic Sans", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
@@ -124,7 +124,7 @@
             dgv_dlt.ThemeStyle.ReadOnly = false;
             dgv_dlt.ThemeStyle.RowsStyle.BackColor = Color.White;
             dgv_dlt.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgv_dlt.ThemeStyle.RowsStyle.Font = new Font("Comic Sans MS", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dgv_dlt.ThemeStyle.RowsStyle.Font = new Font("VNF-Comic Sans", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dgv_dlt.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
             dgv_dlt.ThemeStyle.RowsStyle.Height = 300;
             dgv_dlt.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
@@ -180,7 +180,7 @@
             btn_hsl.DisabledState.CustomBorderColor = Color.DarkGray;
             btn_hsl.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btn_hsl.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btn_hsl.Font = new Font("Comic Sans MS", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_hsl.Font = new Font("VNF-Comic Sans", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_hsl.ForeColor = Color.White;
             btn_hsl.Location = new Point(-58, 170);
             btn_hsl.Name = "btn_hsl";
@@ -189,7 +189,7 @@
             btn_hsl.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btn_hsl.Size = new Size(201, 79);
             btn_hsl.TabIndex = 1;
-            btn_hsl.Text = "Hồ sơ   đã lưu";
+            btn_hsl.Text = "Hồ sơ \nđã lưu";
             btn_hsl.Click += btn_Click;
             // 
             // btn_dlt
@@ -201,7 +201,7 @@
             btn_dlt.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btn_dlt.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btn_dlt.FillColor = Color.FromArgb(255, 73, 102);
-            btn_dlt.Font = new Font("Comic Sans MS", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_dlt.Font = new Font("VNF-Comic Sans", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_dlt.ForeColor = Color.White;
             btn_dlt.Location = new Point(-58, 29);
             btn_dlt.Name = "btn_dlt";
@@ -210,7 +210,7 @@
             btn_dlt.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btn_dlt.Size = new Size(201, 79);
             btn_dlt.TabIndex = 0;
-            btn_dlt.Text = "Duyệt   lưu trữ";
+            btn_dlt.Text = "Duyệt \nlưu trữ";
             btn_dlt.Click += btn_Click;
             // 
             // guna2Elipse1

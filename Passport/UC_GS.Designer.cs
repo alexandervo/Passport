@@ -70,7 +70,7 @@
             dgv_gs.Columns.AddRange(new DataGridViewColumn[] { hs, tt, xt, time });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.Font = new Font("VNF-Comic Sans", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
@@ -150,7 +150,7 @@
             btn_lt.DisabledState.CustomBorderColor = Color.DarkGray;
             btn_lt.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btn_lt.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btn_lt.Font = new Font("Comic Sans MS", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_lt.Font = new Font("VNF-Comic Sans", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_lt.ForeColor = Color.White;
             btn_lt.Location = new Point(-58, 262);
             btn_lt.Name = "btn_lt";
@@ -170,7 +170,7 @@
             btn_xd.DisabledState.CustomBorderColor = Color.DarkGray;
             btn_xd.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btn_xd.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btn_xd.Font = new Font("Comic Sans MS", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_xd.Font = new Font("VNF-Comic Sans", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_xd.ForeColor = Color.White;
             btn_xd.Location = new Point(-58, 144);
             btn_xd.Name = "btn_xd";
@@ -191,7 +191,7 @@
             btn_xt.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btn_xt.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btn_xt.FillColor = Color.FromArgb(255, 73, 102);
-            btn_xt.Font = new Font("Comic Sans MS", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_xt.Font = new Font("VNF-Comic Sans", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_xt.ForeColor = Color.White;
             btn_xt.Location = new Point(-58, 29);
             btn_xt.Name = "btn_xt";

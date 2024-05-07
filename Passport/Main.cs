@@ -105,7 +105,7 @@ namespace Passport
             // Thêm UserControl UC_FormRegister vào panel2
             UC_FormRegister uC_FormRegister = new UC_FormRegister();
             uC_FormRegister.Location = new Point(0, 0);
-            uC_FormRegister.Size = new Size(545, 521);
+            uC_FormRegister.Size = new Size(582, 533);
             panel2.Controls.Add(uC_FormRegister);
 
             // Thêm UserControl UC_CCCD vào panel2
@@ -128,7 +128,7 @@ namespace Passport
             // Thêm UserControl UC_FormRegister vào panel2
             UC_FormRegister uC_FormRegister = new UC_FormRegister();
             uC_FormRegister.Location = new Point(0, 0);
-            uC_FormRegister.Size = new Size(545, 521);
+            uC_FormRegister.Size = new Size(582, 533);
             panel2.Controls.Add(uC_FormRegister);
 
             UC_Rules uC_Rules = new UC_Rules();

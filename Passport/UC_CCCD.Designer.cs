@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             label3 = new Label();
             label1 = new Label();
@@ -63,56 +63,56 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Font = new Font("VNF-Comic Sans", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.Location = new Point(14, 14);
             label3.Name = "label3";
-            label3.Size = new Size(107, 29);
+            label3.Size = new Size(123, 33);
             label3.TabIndex = 4;
             label3.Text = "Số CCCD:";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("VNF-Comic Sans", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(13, 66);
             label1.Name = "label1";
-            label1.Size = new Size(88, 29);
+            label1.Size = new Size(101, 33);
             label1.TabIndex = 5;
             label1.Text = "Họ tên:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("VNF-Comic Sans", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(13, 118);
             label2.Name = "label2";
-            label2.Size = new Size(118, 29);
+            label2.Size = new Size(134, 33);
             label2.TabIndex = 6;
             label2.Text = "Ngày sinh:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Font = new Font("VNF-Comic Sans", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.Location = new Point(443, 180);
             label4.Name = "label4";
-            label4.Size = new Size(106, 29);
+            label4.Size = new Size(121, 33);
             label4.TabIndex = 7;
             label4.Text = "Giới tính:";
             // 
             // lbl_cccd
             // 
             lbl_cccd.AutoSize = true;
-            lbl_cccd.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_cccd.Font = new Font("VNF-Comic Sans", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_cccd.Location = new Point(154, 14);
             lbl_cccd.Name = "lbl_cccd";
-            lbl_cccd.Size = new Size(157, 29);
+            lbl_cccd.Size = new Size(191, 33);
             lbl_cccd.TabIndex = 8;
             lbl_cccd.Text = "000000000001";
             // 
             // lbl_hoten
             // 
-            lbl_hoten.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_hoten.Font = new Font("VNF-Comic Sans", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_hoten.Location = new Point(154, 66);
             lbl_hoten.Name = "lbl_hoten";
             lbl_hoten.Size = new Size(310, 39);
@@ -122,26 +122,26 @@
             // lbl_ns
             // 
             lbl_ns.AutoSize = true;
-            lbl_ns.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_ns.Font = new Font("VNF-Comic Sans", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_ns.Location = new Point(154, 118);
             lbl_ns.Name = "lbl_ns";
-            lbl_ns.Size = new Size(129, 29);
+            lbl_ns.Size = new Size(161, 33);
             lbl_ns.TabIndex = 18;
             lbl_ns.Text = "28/02/2003";
             // 
             // lbl_gt
             // 
             lbl_gt.AutoSize = true;
-            lbl_gt.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_gt.Font = new Font("VNF-Comic Sans", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_gt.Location = new Point(568, 180);
             lbl_gt.Name = "lbl_gt";
-            lbl_gt.Size = new Size(56, 29);
+            lbl_gt.Size = new Size(66, 33);
             lbl_gt.TabIndex = 19;
             lbl_gt.Text = "Nam";
             // 
             // lbl_dc
             // 
-            lbl_dc.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_dc.Font = new Font("VNF-Comic Sans", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_dc.Location = new Point(154, 236);
             lbl_dc.Name = "lbl_dc";
             lbl_dc.Size = new Size(489, 75);
@@ -151,31 +151,31 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Font = new Font("VNF-Comic Sans", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.Location = new Point(14, 236);
             label5.Name = "label5";
-            label5.Size = new Size(88, 29);
+            label5.Size = new Size(100, 33);
             label5.TabIndex = 21;
             label5.Text = "Địa chỉ:";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Comic Sans MS", 16.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label7.Font = new Font("VNF-Comic Sans", 19.8000011F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.FromArgb(253, 192, 0);
             label7.Location = new Point(211, 13);
             label7.Name = "label7";
-            label7.Size = new Size(247, 40);
+            label7.Size = new Size(280, 48);
             label7.TabIndex = 22;
             label7.Text = "Hồ Sơ Công Dân";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Font = new Font("VNF-Comic Sans", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.Location = new Point(13, 180);
             label6.Name = "label6";
-            label6.Size = new Size(117, 29);
+            label6.Size = new Size(135, 33);
             label6.TabIndex = 23;
             label6.Text = "Quốc tịch:";
             // 
@@ -196,22 +196,22 @@
             guna2Panel1.Controls.Add(lbl_hoten);
             guna2Panel1.Controls.Add(label2);
             guna2Panel1.Controls.Add(lbl_ns);
-            guna2Panel1.CustomizableEdges = customizableEdges7;
+            guna2Panel1.CustomizableEdges = customizableEdges3;
             guna2Panel1.Location = new Point(25, 70);
             guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2Panel1.Size = new Size(664, 418);
             guna2Panel1.TabIndex = 24;
             // 
             // pb_avatar
             // 
             pb_avatar.BorderRadius = 25;
-            pb_avatar.CustomizableEdges = customizableEdges5;
+            pb_avatar.CustomizableEdges = customizableEdges1;
             pb_avatar.Image = Properties.Resources.boy1;
             pb_avatar.ImageRotate = 0F;
             pb_avatar.Location = new Point(485, 14);
             pb_avatar.Name = "pb_avatar";
-            pb_avatar.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            pb_avatar.ShadowDecoration.CustomizableEdges = customizableEdges2;
             pb_avatar.Size = new Size(158, 151);
             pb_avatar.SizeMode = PictureBoxSizeMode.StretchImage;
             pb_avatar.TabIndex = 25;
@@ -219,7 +219,7 @@
             // 
             // lbl_qq
             // 
-            lbl_qq.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_qq.Font = new Font("VNF-Comic Sans", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_qq.Location = new Point(154, 327);
             lbl_qq.Name = "lbl_qq";
             lbl_qq.Size = new Size(470, 80);
@@ -229,20 +229,20 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.Font = new Font("VNF-Comic Sans", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.Location = new Point(13, 327);
             label8.Name = "label8";
-            label8.Size = new Size(111, 29);
+            label8.Size = new Size(130, 33);
             label8.TabIndex = 25;
             label8.Text = "Quê quán:";
             // 
             // lbl_qt
             // 
             lbl_qt.AutoSize = true;
-            lbl_qt.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl_qt.Font = new Font("VNF-Comic Sans", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_qt.Location = new Point(154, 180);
             lbl_qt.Name = "lbl_qt";
-            lbl_qt.Size = new Size(106, 29);
+            lbl_qt.Size = new Size(121, 33);
             lbl_qt.TabIndex = 24;
             lbl_qt.Text = "Việt Nam";
             // 
