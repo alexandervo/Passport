@@ -176,7 +176,7 @@ namespace Passport
             btn_exit.HoverState.BorderColor = Color.FromArgb(253, 192, 0);
             btn_exit.HoverState.FillColor = Color.FromArgb(253, 192, 0);
             btn_exit.Image = Properties.Resources.logout;
-            btn_exit.ImageOffset = new Point(-10, 0);
+            btn_exit.ImageOffset = new Point(-12, 0);
             btn_exit.ImageSize = new Size(50, 50);
             btn_exit.Location = new Point(-24, 635);
             btn_exit.Name = "btn_exit";

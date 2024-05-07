@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             label3 = new Label();
             label1 = new Label();
@@ -196,22 +196,22 @@
             guna2Panel1.Controls.Add(lbl_hoten);
             guna2Panel1.Controls.Add(label2);
             guna2Panel1.Controls.Add(lbl_ns);
-            guna2Panel1.CustomizableEdges = customizableEdges3;
+            guna2Panel1.CustomizableEdges = customizableEdges7;
             guna2Panel1.Location = new Point(25, 70);
             guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges8;
             guna2Panel1.Size = new Size(664, 418);
             guna2Panel1.TabIndex = 24;
             // 
             // pb_avatar
             // 
             pb_avatar.BorderRadius = 25;
-            pb_avatar.CustomizableEdges = customizableEdges1;
+            pb_avatar.CustomizableEdges = customizableEdges5;
             pb_avatar.Image = Properties.Resources.boy1;
             pb_avatar.ImageRotate = 0F;
             pb_avatar.Location = new Point(485, 14);
             pb_avatar.Name = "pb_avatar";
-            pb_avatar.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            pb_avatar.ShadowDecoration.CustomizableEdges = customizableEdges6;
             pb_avatar.Size = new Size(158, 151);
             pb_avatar.SizeMode = PictureBoxSizeMode.StretchImage;
             pb_avatar.TabIndex = 25;
