@@ -57,8 +57,7 @@ namespace Passport
                 {
                     conn.Open();
                     string query = "";
-                    // if (Main.xt) query = "select * from Form_Register where trave = 0 and trangthai = 0";
-                    if (Main.xt) query = "select * from Form_Register where trave = 0"; // For debugging
+                    if (Main.xt) query = "select * from Form_Register where trave = 0 and trangthai = 0";
                     else query = "select * from Form_Register where xacthuc = 1 and trave = 0";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -108,7 +107,6 @@ namespace Passport
 
         private void btn_duyet_Click(object sender, EventArgs e)
         {
-            //string connectionString = @"Data Source=ALEXANDER\SQLEXPRESS;Initial Catalog=Passport;User Id=" + Login.username + ";Password=" + Login.pass;
             try
             {
                 using (SqlConnection conn = new SqlConnection(Main.connectionString))
@@ -153,7 +151,6 @@ namespace Passport
 
         private void btn_deny_Click(object sender, EventArgs e)
         {
-            //string connectionString = @"Data Source=ALEXANDER\SQLEXPRESS;Initial Catalog=Passport;User Id=" + Login.username + ";Password=" + Login.pass;
             try
             {
                 using (SqlConnection conn = new SqlConnection(Main.connectionString))

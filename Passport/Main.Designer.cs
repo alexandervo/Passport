@@ -31,21 +31,20 @@ namespace Passport
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            CustomizableEdges customizableEdges1 = new CustomizableEdges();
+            CustomizableEdges customizableEdges2 = new CustomizableEdges();
+            CustomizableEdges customizableEdges3 = new CustomizableEdges();
+            CustomizableEdges customizableEdges4 = new CustomizableEdges();
+            CustomizableEdges customizableEdges5 = new CustomizableEdges();
+            CustomizableEdges customizableEdges6 = new CustomizableEdges();
+            CustomizableEdges customizableEdges7 = new CustomizableEdges();
+            CustomizableEdges customizableEdges8 = new CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            CustomizableEdges customizableEdges9 = new CustomizableEdges();
+            CustomizableEdges customizableEdges10 = new CustomizableEdges();
+            CustomizableEdges customizableEdges11 = new CustomizableEdges();
+            CustomizableEdges customizableEdges12 = new CustomizableEdges();
+            CustomizableEdges customizableEdges13 = new CustomizableEdges();
             panel1 = new Panel();
             btn_gs = new Guna.UI2.WinForms.Guna2Button();
             btn_lt = new Guna.UI2.WinForms.Guna2Button();
@@ -97,6 +96,8 @@ namespace Passport
             btn_gs.ForeColor = Color.White;
             btn_gs.HoverState.BorderColor = Color.FromArgb(253, 192, 0);
             btn_gs.HoverState.FillColor = Color.FromArgb(253, 192, 0);
+            btn_gs.Image = Properties.Resources.audit;
+            btn_gs.ImageSize = new Size(50, 50);
             btn_gs.Location = new Point(-24, 519);
             btn_gs.Name = "btn_gs";
             btn_gs.Padding = new Padding(35, 0, 0, 0);
@@ -121,6 +122,9 @@ namespace Passport
             btn_lt.ForeColor = Color.White;
             btn_lt.HoverState.BorderColor = Color.FromArgb(253, 192, 0);
             btn_lt.HoverState.FillColor = Color.FromArgb(253, 192, 0);
+            btn_lt.Image = Properties.Resources.database_storage;
+            btn_lt.ImageOffset = new Point(-8, 0);
+            btn_lt.ImageSize = new Size(50, 50);
             btn_lt.Location = new Point(-24, 410);
             btn_lt.Name = "btn_lt";
             btn_lt.Padding = new Padding(35, 0, 0, 0);
@@ -145,6 +149,8 @@ namespace Passport
             btn_xd.ForeColor = Color.White;
             btn_xd.HoverState.BorderColor = Color.FromArgb(253, 192, 0);
             btn_xd.HoverState.FillColor = Color.FromArgb(253, 192, 0);
+            btn_xd.Image = Properties.Resources.verified;
+            btn_xd.ImageSize = new Size(50, 50);
             btn_xd.Location = new Point(-24, 288);
             btn_xd.Name = "btn_xd";
             btn_xd.Padding = new Padding(35, 0, 0, 0);
@@ -169,6 +175,9 @@ namespace Passport
             btn_exit.ForeColor = Color.White;
             btn_exit.HoverState.BorderColor = Color.FromArgb(253, 192, 0);
             btn_exit.HoverState.FillColor = Color.FromArgb(253, 192, 0);
+            btn_exit.Image = Properties.Resources.logout;
+            btn_exit.ImageOffset = new Point(-10, 0);
+            btn_exit.ImageSize = new Size(50, 50);
             btn_exit.Location = new Point(-24, 635);
             btn_exit.Name = "btn_exit";
             btn_exit.Padding = new Padding(35, 0, 0, 0);
@@ -231,10 +240,10 @@ namespace Passport
             btn_xt.ForeColor = Color.White;
             btn_xt.HoverState.BorderColor = Color.FromArgb(253, 192, 0);
             btn_xt.HoverState.FillColor = Color.FromArgb(253, 192, 0);
-            btn_xt.Image = (Image)resources.GetObject("btn_xt.Image");
+            btn_xt.Image = Properties.Resources.accuracy;
             btn_xt.ImageAlign = HorizontalAlignment.Left;
             btn_xt.ImageOffset = new Point(30, 0);
-            btn_xt.ImageSize = new Size(30, 30);
+            btn_xt.ImageSize = new Size(50, 50);
             btn_xt.Location = new Point(-24, 156);
             btn_xt.Name = "btn_xt";
             btn_xt.Padding = new Padding(35, 0, 0, 0);
@@ -269,6 +278,22 @@ namespace Passport
             guna2Elipse3.BorderRadius = 50;
             guna2Elipse3.TargetControl = panel3;
             // 
+            // btn_right_arrow
+            // 
+            btn_right_arrow.CheckedState.ImageSize = new Size(64, 64);
+            btn_right_arrow.HoverState.Image = Properties.Resources.right_arrow_hover;
+            btn_right_arrow.HoverState.ImageSize = new Size(64, 64);
+            btn_right_arrow.Image = Properties.Resources.right_arrow;
+            btn_right_arrow.ImageOffset = new Point(0, 0);
+            btn_right_arrow.ImageRotate = 0F;
+            btn_right_arrow.Location = new Point(389, 548);
+            btn_right_arrow.Name = "btn_right_arrow";
+            btn_right_arrow.PressedState.ImageSize = new Size(64, 64);
+            btn_right_arrow.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            btn_right_arrow.Size = new Size(89, 76);
+            btn_right_arrow.TabIndex = 2;
+            btn_right_arrow.Click += btn_right_arrow_Click;
+            // 
             // btn_left_arrow
             // 
             btn_left_arrow.CheckedState.ImageSize = new Size(64, 64);
@@ -284,23 +309,6 @@ namespace Passport
             btn_left_arrow.Size = new Size(89, 76);
             btn_left_arrow.TabIndex = 3;
             btn_left_arrow.Click += btn_left_arrow_Click;
-
-            // 
-            // btn_right_arrow
-            // 
-            btn_right_arrow.CheckedState.ImageSize = new Size(64, 64);
-            btn_right_arrow.HoverState.Image = Properties.Resources.right_arrow_hover;
-            btn_right_arrow.HoverState.ImageSize = new Size(64, 64);
-            btn_right_arrow.Image = Properties.Resources.right_arrow;
-            btn_right_arrow.ImageOffset = new Point(0, 0);
-            btn_right_arrow.ImageRotate = 0F;
-            btn_right_arrow.Location = new Point(389, 548);
-            btn_right_arrow.Name = "btn_right_arrow";
-            btn_right_arrow.PressedState.ImageSize = new Size(64, 64);
-            btn_right_arrow.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            btn_right_arrow.Size = new Size(89, 76);
-            btn_right_arrow.TabIndex = 2;
-            btn_right_arrow.Click += btn_right_arrow_Click;
             // 
             // Main
             // 
