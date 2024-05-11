@@ -50,7 +50,7 @@ namespace Passport
         // hàm để lấy thông tin form đăng ký từ cơ sở dữ liệu 
         public void Connect_Database()
         {
-            //string connectionString = @"Data Source=ALEXANDER\SQLEXPRESS;Initial Catalog=Passport;User Id=" + Login.username + ";Password=" + Login.pass;
+            
             try
             {
                 using (SqlConnection conn = new SqlConnection(Main.connectionString))

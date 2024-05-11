@@ -251,6 +251,7 @@ namespace Passport
                 xd = false;
                 lt = false;
                 gs = false;
+                stt = 0;
                 Menu();
             }
         }
@@ -263,6 +264,7 @@ namespace Passport
                 xd = true;
                 lt = false;
                 gs = false;
+                stt = 0;
                 Menu();
             }
         }
