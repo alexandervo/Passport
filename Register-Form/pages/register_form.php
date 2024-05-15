@@ -53,6 +53,7 @@
         if (empty($_POST["email_user_data"])) {
             $email_Data_Err_Msg = "<p class='warning'>*Xin vui lòng điền email*</p>";
         } else {
+            $email_Data = filter_input(INPUT_POST, "email_user_data", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $email_Data = $_POST["email_user_data"];
         }
     }
@@ -67,7 +68,7 @@
         empty($email_Data_Err_Msg)
     ) {
         $tsql = "INSERT INTO Form_Register VALUES
-            (0,0,0, N'" . $hoten_Data . "', N'" . $diachi_Data . "', 0, '" . $ngaysinh_Data . "', '" . $so_cccd_Data . "', '" . $sdt_Data . "', '" . $email_Data . "')";
+            (0, 0, 0, N'" . $hoten_Data . "', N'" . $diachi_Data . "', 0, '" . $ngaysinh_Data . "', '" . $so_cccd_Data . "', '" . $sdt_Data . "', N'" . $email_Data . "')";
 
         // echo "SQL SCRIPT: " . $tsql;
 
@@ -83,6 +84,19 @@
             echo "Error in statement execution.\n";
             die(print_r(sqlsrv_errors(), true));
         }
+
+        // $tsql = "INSERT INTO Resident_data VALUES("
+        // . $so_cccd_Data .
+        // ", N'" . $hoten_Data . "', "
+        // . $ngaysinh_Data .
+        // // Login tách quê quán và quốc tịch sẽ được xử lí sau
+        // "', N'" . $diachi_Data . "', 0, '" . $ngaysinh_Data . "', '" .  . "', '" . $sdt_Data . "', '" . $email_Data . "')";
+
+
+
+        // // echo "SQL SCRIPT: " . $tsql;
+
+        // $stmt = sqlsrv_query($conn, $tsql);
     }
     ?>
 
@@ -92,13 +106,13 @@
             <?php echo $hoten_Data_Err_Msg . "\n" ?>
             <label>
                 Họ tên:
-                <input type="text" name="hoten_user_data" value="chữ phức tạp thì được">
+                <input type="text" name="hoten_user_data">
             </label>
 
             <?php echo $diachi_Data_Err_Msg . "\n" ?>
             <label>
                 Địa chỉ:
-                <input type="text" name="diachi_user_data" value="còn đơn giản thì không?">
+                <input type="text" name="diachi_user_data">
             </label>
 
             <?php echo $gioitinh_Data_Err_Msg . "\n" ?>
@@ -119,28 +133,28 @@
             <?php echo $ngaysinh_Data_Err_Msg . "\n" ?>
             <label>
                 Ngày sinh:
-                <input type='date' name='ngaysinh_user_data' value='2024-05-05'>
+                <input type='date' name='ngaysinh_user_data'>
             </label>
 
             <?php echo $so_cccd_Data_Err_Msg . "\n" ?>
             <label>
                 Số CCCD:
-                <input type="text" name="so_cccd_user_data" value='1111111'>
+                <input type="text" name="so_cccd_user_data">
             </label>
 
             <?php echo $sdt_Data_Err_Msg . "\n" ?>
             <label>
                 Số điện thoại:
-                <input type="text" name="sdt_user_data" value='1111111'>
+                <input type="text" name="sdt_user_data">
             </label>
 
             <?php echo $email_Data_Err_Msg . "\n" ?>
             <label>
                 Email:
-                <input type="text" name="email_user_data" value='sao nãy được mà đm, thiệt hông?'>
+                <input type="text" name="email_user_data">
             </label>
 
-            <input class="register-btn" type="submit" value="Đăng ký" name="registered">
+            <input class="register-btn option-select" type="submit" value="Đăng ký" name="registered">
         </form>
     </div>
 </body>
