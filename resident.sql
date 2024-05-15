@@ -30,7 +30,7 @@ create table Form_Register
 	ngaysinh date not null,
 	so_cccd varchar(12) not null,
 	sdt varchar(10) not null,
-	email varchar(100),
+	email varchar(100) COLLATE Latin1_General_CI_AS
 )
 
 create table Nhanvien
