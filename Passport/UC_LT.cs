@@ -80,10 +80,11 @@ namespace Passport
 
                                         if (rowsAffected > 0)
                                         {
-                                            query = "update Form_Register set trave = 1 where shs = @so";
+                                            query = "update Form_Register set trave = 1, nv = @nv where shs = @so";
                                             using (SqlCommand cmd_update = new SqlCommand(query, conn))
                                             {
                                                 cmd_update.Parameters.AddWithValue("@so", so);
+                                                cmd_update.Parameters.AddWithValue("@nv", Login.ma);
                                                 rowsAffected = cmd_update.ExecuteNonQuery();
                                                 if (rowsAffected > 0)
                                                 {

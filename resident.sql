@@ -4,7 +4,7 @@ go
 use Passport
 go
 
-delete from Form_Register
+--delete from Form_Register
 
 create table Resident_data
 (
@@ -17,7 +17,7 @@ create table Resident_data
 	diachi nvarchar(100) not null,
 	constraint pk_cccd primary key (so_cccd)
 )
-drop table Form_Register
+--drop table Form_Register
 create table Form_Register
 (
 	shs numeric identity,
@@ -30,16 +30,20 @@ create table Form_Register
 	ngaysinh date not null,
 	so_cccd varchar(12) not null,
 	sdt varchar(10) not null,
-	email varchar(100) COLLATE Latin1_General_CI_AS
+	email varchar(100) COLLATE Latin1_General_CI_AS,
+	nv varchar(20)
 )
 
 create table Nhanvien
 (
 	tendn varchar(20) not null,
+	mk varbinary(max) not null,
 	hoten nvarchar(50) not null,
-	bophan char(2) not null,
+	bophan char(2) not null
 
 )
+
+--drop table Nhanvien
 
 create table Luutru
 (
@@ -63,14 +67,40 @@ create table GiamSat
 	dt datetime
 )
 
-drop table GiamSat
-insert into Nhanvien values
-('phuvk', N'Võ Kiến Phú', 'ad'), 
-('anhpvt', N'Phan Vũ Tuấn Anh', 'xd'),
-('danglta', N'Lai Thị Ánh Đăng', 'lt'),
-('linhnta', N'Nguyễn Trần Ánh Linh', 'gs'),
-('lanptn', N'Phan Thị Ngọc Lan', 'xt')
+--drop table GiamSat
+CREATE PROCEDURE SP_Nhanvien
+    @tendn VARCHAR(20),
+    @mk VARCHAR(MAX),
+    @hoten NVARCHAR(50),
+    @bophan CHAR(2)
+AS
+BEGIN
+    SET NOCOUNT ON;
 
+    DECLARE @hashed_mk VARBINARY(MAX);
+    SET @hashed_mk = CAST(HASHBYTES('SHA2_512', @mk) AS Varbinary(MAX))
+
+    BEGIN TRY
+        INSERT INTO Nhanvien (tendn, mk, hoten, bophan)
+        VALUES (@tendn, @hashed_mk, @hoten, @bophan);
+    END TRY
+    BEGIN CATCH
+        -- Xử lý lỗi ở đây (nếu cần)
+        PRINT ERROR_MESSAGE();
+    END CATCH
+END;
+
+--drop procedure SP_Nhanvien
+Delete Nhanvien
+--insert into Nhanvien values
+
+Exec SP_Nhanvien 'phuvk', phuvk, N'Võ Kiến Phú', 'ad' 
+Exec SP_Nhanvien 'anhpvt', anhpvt, N'Phan Vũ Tuấn Anh', 'xd'
+Exec SP_Nhanvien 'danglta', danglta, N'Lai Thị Ánh Đăng', 'lt'
+Exec SP_Nhanvien 'linhnta', linhnta, N'Nguyễn Trần Ánh Linh', 'gs'
+Exec SP_Nhanvien 'lanptn', lanptn, N'Phan Thị Ngọc Lan', 'xt'
+
+--SELECT * FROM Nhanvien
 
 insert into Resident_data values
 ('000000000001', N'Phạm Lê Đức Anh', '1988-02-20', 0, N'Việt Nam', N'Hải Dương', N'123A đường Lý Thường Kiệt, Phường 10, Quận 5, TPHCM'),
@@ -84,55 +114,59 @@ insert into Resident_data values
 
 
 insert into Form_Register values
-(0,0,0, N'Phạm Lê Đức Anh', N'123A đường Lý Thường Kiệt, Phường 10, Quận 5, TPHCM', 0, '1988-02-20', '000000000001', '0862633127', 'phamleducanh@gmail.com'),
-(0,0,0, N'Phạm Minh Thư', N'219 Lê Lợi, phường 2, Quận 3, TPHCM', 1, '1983-03-16', '000000000002', '0336688722', 'minhthu88@gmail.com'),
-(0,0,0, N'Nguyễn Quốc Anh', N'298 - phường Kim Tân, thành phố Lào Cai, tỉnh Lào Cai', 0, '1975-12-20', '000000000003', '0336688722', 'anhnq@gmail.com'),
-(0,0,0, N'Hoàng Phương Hoa', N'49 Lê Duẩn, Bến Nghé, Quận 1, TPHCM', 1, '1999-06-20', '000000000004', '0373722198', 'phuonghoa99@gmail.com'),
-(0,0,0, N'Nguyễn Lê Hồng Nhung', N'362 Kim Mã Q. Ba Đình, Hà Nội', 1, '2002-06-21', '000000000005', '0973256232', 'nhungnhinhanh@gmail.com'),
-(0,0,0, N'Phạm Văn Nghĩa',  N'41 Cát Linh, Q. Đống Đa, Hà Nội', 0, '1999-03-06', '000000000006', '0236228133', 'nghiapham0399@gmail.com'),
-(0,0,0, N'Nguyễn Hoàng Minh Khôi', N'10 Lê Thánh Tông, Q. Hoàn Kiếm, Hà Nội', 0, '2001-01-02', '000000000007', '0902231136', 'minhkhoi@gmail.com'),
-(0,0,0, N'Thân Lê Ngọc Xuyến', N' 86 Trần Nhân Tông, Q. Hai Bà Trưng, Hà Nội', 1, '2003-05-10', '000000000008', '0868683321', 'ngocxuyenthanle2003@gmail.com')
+(0,0,0, N'Phạm Lê Đức Anh', N'123A đường Lý Thường Kiệt, Phường 10, Quận 5, TPHCM', 0, '1988-02-20', '000000000001', '0862633127', 'phamleducanh@gmail.com', ''),
+(0,0,0, N'Phạm Minh Thư', N'219 Lê Lợi, phường 2, Quận 3, TPHCM', 1, '1983-03-16', '000000000002', '0336688722', 'minhthu88@gmail.com', ''),
+(0,0,0, N'Nguyễn Quốc Anh', N'298 - phường Kim Tân, thành phố Lào Cai, tỉnh Lào Cai', 0, '1975-12-20', '000000000003', '0336688722', 'anhnq@gmail.com', ''),
+(0,0,0, N'Hoàng Phương Hoa', N'49 Lê Duẩn, Bến Nghé, Quận 1, TPHCM', 1, '1999-06-20', '000000000004', '0373722198', 'phuonghoa99@gmail.com', ''),
+(0,0,0, N'Nguyễn Lê Hồng Nhung', N'362 Kim Mã Q. Ba Đình, Hà Nội', 1, '2002-06-21', '000000000005', '0973256232', 'nhungnhinhanh@gmail.com', ''),
+(0,0,0, N'Phạm Văn Nghĩa',  N'41 Cát Linh, Q. Đống Đa, Hà Nội', 0, '1999-03-06', '000000000006', '0236228133', 'nghiapham0399@gmail.com', ''),
+(0,0,0, N'Nguyễn Hoàng Minh Khôi', N'10 Lê Thánh Tông, Q. Hoàn Kiếm, Hà Nội', 0, '2001-01-02', '000000000007', '0902231136', 'minhkhoi@gmail.com', ''),
+(0,0,0, N'Thân Lê Ngọc Xuyến', N' 86 Trần Nhân Tông, Q. Hai Bà Trưng, Hà Nội', 1, '2003-05-10', '000000000008', '0868683321', 'ngocxuyenthanle2003@gmail.com', '')
 
 delete from Luutru
 
 --tạo user các nhân viên 
-create login namnh with password = 'namnh';
-create user namnh for login namnh;
 
-create login phuvk with password = 'phuvk';
-create user phuvk for login phuvk;
+create login ad with password = 'ad';
+create user ad for login ad;
 
-create login lanptn with password = 'lanptn';
-create user lanptn for login lanptn;
+create login xt with password = 'xt';
+create user xt for login xt;
 
 
-create login anhpvt with password = 'anhpvt';
-create user anhpvt for login anhpvt;
+create login xd with password = 'xd';
+create user xd for login xd;
 
-create login danglta with password = 'danglta';
-create user danglta for login danglta;
+create login lt with password = 'lt';
+create user lt for login lt;
 
-create login linhnta with password = 'linhnta';
-create user linhnta for login linhnta;
+create login gs with password = 'gs';
+create user gs for login gs;
+
+create login nv with password = 'nv';
+create user nv for login nv;
+
+drop login nv
+drop user nv
 -- phân quyền 
---grant update on Gs to namnh;
 
-grant control on database::Passport to phuvk;
+grant control on database::Passport to ad;
 
-revoke select on Resident_data to anhpvt;
-grant select, update on Form_Register to anhpvt;
-grant select on Nhanvien to anhpvt;
+grant select on Nhanvien to nv;
 
-grant select on Resident_data to lanptn;
-grant select, update on Form_Register to lanptn;
-grant select on Nhanvien to lanptn;
+grant select, update on Form_Register to xt;
+grant select on Nhanvien to xt;
+grant select on Resident_data to xt;
 
-grant select, update on Form_Register to danglta;
-grant select on Nhanvien to danglta;
-grant select, insert on Luutru to danglta
+grant select, update on Form_Register to xd;
+grant select on Nhanvien to xd;
 
-grant select on Nhanvien to linhnta;
-grant select on GiamSat to linhnta;
+grant select, update on Form_Register to lt;
+grant select on Nhanvien to lt;
+grant select, insert on Luutru to lt;
+
+grant select on Nhanvien to gs;
+grant select on GiamSat to gs;
 
 --tạo trigger
 create trigger Audit_Update on Form_Register
@@ -140,26 +174,28 @@ after update
 as
 begin
 	declare @tt char = ''
-	declare @bp varchar(2) = ''
+	declare @nv varchar(20) = ''
 	select 
 		@tt = case
 			when trave = 1 and trangthai = 1 and xacthuc = 1 then 'l'
 			when trave = 1 and (trangthai = 0 or xacthuc = 0) then 't'
-			when trave = 0 and trangthai = 0 and xacthuc = 1 then 'x'
+			when trave = 0 and trangthai = 0 and xacthuc = 1 and SUSER_NAME() = 'xt' then 'x'
 			when trave = 0 and trangthai = 1 and xacthuc = 1 then 'd'
+			when trave = 0 and trangthai = 0 and xacthuc = 0 then '1'
+			when trave = 0 and trangthai = 0 and xacthuc = 1 and SUSER_NAME() = 'xd' then '2'
 			else 'n'
 			end
 	from inserted
 	declare @hs varchar(15)
-	select @hs = cast(shs as varchar(15)) from inserted
-	select @bp = bophan from Nhanvien where tendn = SUSER_NAME()
-	if @tt != 'n' insert into GiamSat values (@bp, @hs, @tt, SUSER_NAME(), GETDATE())
+	select @hs = cast(shs as varchar(15)), @nv = nv from inserted
+	if @tt != 'n' insert into GiamSat values (SUSER_NAME(), @hs, @tt, @nv, GETDATE())
 end
 
-drop trigger Audit_Update
+--drop trigger Audit_Update
+
 
 -- các lệnh để test thui 
-
+select * from Form_Register
 select hoten from Nhanvien where tendn= 'phuvk'
 select * from Nhanvien
 drop table Nhanvien

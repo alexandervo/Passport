@@ -30,7 +30,6 @@ namespace Passport
         }
         private void UC_CCCD_Load(object sender, EventArgs e)
         {
-            //string connectionString = @"Data Source=ALEXANDER\SQLEXPRESS;Initial Catalog=Passport;User Id=" + Login.username + ";Password=" + Login.pass;
             try
             {
                 using (SqlConnection conn = new SqlConnection(Main.connectionString))

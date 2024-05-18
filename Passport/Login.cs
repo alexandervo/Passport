@@ -11,7 +11,8 @@ using System.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Net;
-
+using System.Security.Cryptography;
+using System.Security.Policy;
 namespace Passport
 {
     public partial class Login : Form
@@ -24,6 +25,7 @@ namespace Passport
         public static string username = "";
         public static string pass = "";
         public static string bp = "";
+        public static string ma = "";
         public static string sql_server_name = "Alexander\\SQLEXPRESS";
         public bool hide = true;
 
@@ -35,32 +37,46 @@ namespace Passport
         public void login()
         {
             // Lấy thông tin đăng nhập từ ô nhập
-            username = txt_user.Text.Replace(" ","");
-            pass = txt_pass.Text.Replace(" ", "");
-            string connectionString = @"Data Source=" + sql_server_name + ";Initial Catalog=Passport;User Id=" + username + ";Password=" + pass;
+            string name = txt_user.Text.Replace(" ","");
+            string pw = txt_pass.Text.Replace(" ", "");
+            SHA512 sha512 = SHA512.Create();
+            byte[] hashed_pw = sha512.ComputeHash(Encoding.UTF8.GetBytes(pw));
+            string connectionString = @"Data Source=" + sql_server_name + ";Initial Catalog=Passport;User Id= nv;Password= nv";
 
             SqlConnection conn = new SqlConnection(connectionString);
             try
             {
                 conn.Open();// nếu kết nối thành công thì tức là thông tin đăng nhập đúng 
                 // khúc using này là để lấy tên bộ phận của nhân viên đó 
-                using (SqlCommand cmd = new SqlCommand("select bophan from Nhanvien where tendn = @username", conn))
+                using (SqlCommand cmd = new SqlCommand("select * from Nhanvien where tendn = @username", conn))
                 {
-                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@username", name);
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
-                            bp = (string)reader["bophan"];
-                            reader.Close();
+                            byte[] storedHash = (byte[])reader["mk"];
+                            if (storedHash.SequenceEqual(hashed_pw))
+                            {
+                                bp = (string)reader["bophan"];
+                                username = bp;
+                                pass = bp;
+                                ma = (string)reader["tendn"];
+                                reader.Close();
+                                Main main = new Main();
+                                main.Show();
+                                this.Hide();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Tài khoản hoặc mật khẩu không đúng!");
+                            }
                         }
                     }
                 }
                 // đóng kết nối và mở màn hình làm việc chính 
                 conn.Close();
-                Main main = new Main();
-                main.Show();
-                this.Hide();
+
             }
             catch (Exception ex)
             {

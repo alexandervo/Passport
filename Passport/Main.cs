@@ -166,7 +166,7 @@ namespace Passport
                     string query = "select * from Nhanvien where tendn = @username";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@username", Login.username);
+                        cmd.Parameters.AddWithValue("@username", Login.ma);
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             if (reader.Read())

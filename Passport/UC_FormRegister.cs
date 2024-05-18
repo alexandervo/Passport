@@ -124,12 +124,13 @@ namespace Passport
                             reader.Close();
                             // Update trạng thái
                             string updateQuery = "";
-                            if (Main.xt) updateQuery = "update Form_Register set xacthuc = @newStatus where so_cccd = @cccd";
-                            else updateQuery = "update Form_Register set trangthai = @newStatus where so_cccd = @cccd";
+                            if (Main.xt) updateQuery = "update Form_Register set xacthuc = @newStatus, nv = @nv where so_cccd = @cccd";
+                            else updateQuery = "update Form_Register set trangthai = @newStatus, nv = @nv where so_cccd = @cccd";
                             using (SqlCommand updateCmd = new SqlCommand(updateQuery, conn))
                             {
                                 updateCmd.Parameters.AddWithValue("@newStatus", newStatus);
                                 updateCmd.Parameters.AddWithValue("@cccd", Main.so_cccd);
+                                updateCmd.Parameters.AddWithValue("@nv", Login.ma);
                                 int rowsAffected = updateCmd.ExecuteNonQuery();
 
                                 if (rowsAffected > 0)
@@ -167,12 +168,13 @@ namespace Passport
                             bool newStatus = !currentStatus;
                             reader.Close();
                             // Update trạng thái
-                            string updateQuery = "update Form_Register set trave = @newStatus where so_cccd = @cccd";
+                            string updateQuery = "update Form_Register set trave = @newStatus, nv = @nv where so_cccd = @cccd";
                           
                             using (SqlCommand updateCmd = new SqlCommand(updateQuery, conn))
                             {
                                 updateCmd.Parameters.AddWithValue("@newStatus", newStatus);
                                 updateCmd.Parameters.AddWithValue("@cccd", Main.so_cccd);
+                                updateCmd.Parameters.AddWithValue("@nv", Login.ma);
                                 int rowsAffected = updateCmd.ExecuteNonQuery();
 
                                 if (rowsAffected > 0)

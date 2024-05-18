@@ -127,7 +127,9 @@ namespace Passport
                             if ((string)row["tt"] == "l") tt = "Đã lưu";
                             else if ((string)row["tt"] == "t") tt = "Trả về";
                             else if ((string)row["tt"] == "x") tt = "Đã xác thực";
-                            else if ((string)row["tt"] ==  "d") tt = "Đã xét duyệt";
+                            else if ((string)row["tt"] == "d") tt = "Đã xét duyệt";
+                            else if ((string)row["tt"] == "1") tt = "Hoàn tác xác thực";
+                            else if ((string)row["tt"] == "2") tt = "Hoàn tác xét duyệt";
                             string nd = (string)row["nv"];                          
                             DateTime dt = (DateTime)row["dt"];
 
