@@ -6,11 +6,11 @@
     <link rel="shortcut icon" href="#">
     <title>Document</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="./styles/index.css">
 </head>
 
 <body style="padding-top: 0">
-    <?php include "../servers/connection.php" ?>
+    <?php include ".connection.php" ?>
 
     <?php
     $hoten_Data = $diachi_Data = $gioitinh_Data = $ngaysinh_Data = $so_cccd_Data = $sdt_Data = $email_Data = ""; //Clear data
@@ -30,11 +30,11 @@
             $diachi_Data = filter_input(INPUT_POST, "diachi_user_data", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $diachi_Data = $_POST["diachi_user_data"];
         }
-        if (empty($_POST["gioitinh_user_data"])) {
-            $gioitinh_Data_Err_Msg = "<p class='warning'>*Xin vui lòng điền gioitinh*</p>";
-        } else {
-            $gioitinh_Data = $_POST["gioitinh_user_data"];
-        }
+        // if (empty($_POST["gioitinh_user_data"])) {
+        //     $gioitinh_Data_Err_Msg = "<p class='warning'>*Xin vui lòng điền gioitinh*</p>";
+        // } else {
+        //     $gioitinh_Data = $_POST["gioitinh_user_data"];
+        // }
         if (empty($_POST["ngaysinh_user_data"])) {
             $ngaysinh_Data_Err_Msg = "<p class='warning'>*Xin vui lòng điền ngaysinh*</p>";
         } else {
@@ -56,6 +56,7 @@
             $email_Data = filter_input(INPUT_POST, "email_user_data", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $email_Data = $_POST["email_user_data"];
         }
+        $gioitinh_Data = $_POST["gioitinh_user_data"];
     }
 
     if (

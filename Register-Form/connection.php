@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=UTF-8');
-define("SITEURL", "http://localhost/Passport-Register/");
+define("SITEURL", "http://localhost/Passport%20Manager/Register-Form/");
 
 $serverName = "MARCO-A315";
 $databaseName = "Passport";

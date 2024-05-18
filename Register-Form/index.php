@@ -9,12 +9,12 @@
 </head>
 
 <body>
-    <?php include "./servers/connection.php" ?>
+    <?php include "./connection.php" ?>
 
     <div class="panel">
         <h1 class="title">Cấp hộ chiếu lần đầu</h1>
         <div class="options">
-            <a href="./pages/register_form.php" class="option-select">Đăng ký</a>
+            <a href="./register_form.php" class="option-select">Đăng ký</a>
             <a href="" class="option-select">Tra cứu kết quả</a>
         </div>
     </div>
