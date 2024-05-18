@@ -148,8 +148,8 @@ create user nv for login nv;
 
 drop login nv
 drop user nv
--- phân quyền 
 
+-- phân quyền 
 grant control on database::Passport to ad;
 
 grant select on Nhanvien to nv;
@@ -167,6 +167,7 @@ grant select, insert on Luutru to lt;
 
 grant select on Nhanvien to gs;
 grant select on GiamSat to gs;
+GO
 
 --tạo trigger
 create trigger Audit_Update on Form_Register
@@ -208,7 +209,5 @@ drop database Passport
 go 
 
 select * from Form_Register where trave = 0 and trangthai = 0;
+
 select * from GiamSat;
-
-delete from GiamSat
-

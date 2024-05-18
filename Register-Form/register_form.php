@@ -10,7 +10,7 @@
 </head>
 
 <body style="padding-top: 0">
-    <?php include ".connection.php" ?>
+    <?php include "./connection.php" ?>
 
     <?php
     $hoten_Data = $diachi_Data = $gioitinh_Data = $ngaysinh_Data = $so_cccd_Data = $sdt_Data = $email_Data = ""; //Clear data
@@ -69,7 +69,7 @@
         empty($email_Data_Err_Msg)
     ) {
         $tsql = "INSERT INTO Form_Register VALUES
-            (0, 0, 0, N'" . $hoten_Data . "', N'" . $diachi_Data . "', 0, '" . $ngaysinh_Data . "', '" . $so_cccd_Data . "', '" . $sdt_Data . "', N'" . $email_Data . "')";
+            (0, 0, 0, N'" . $hoten_Data . "', N'" . $diachi_Data . "', 0, '" . $ngaysinh_Data . "', '" . $so_cccd_Data . "', '" . $sdt_Data . "', N'" . $email_Data . "', '')";
 
         // echo "SQL SCRIPT: " . $tsql;
 
@@ -121,11 +121,11 @@
                 Giới tính:
                 <div class="sex-selection">
                     <label>
-                        <input type='radio' name='gioitinh_user_data' value='0'>
+                        <input type='radio' name='gioitinh_user_data' value='0' checked>
                         Nam
                     </label>
                     <label>
-                        <input type='radio' name='gioitinh_user_data' value='1' checked>
+                        <input type='radio' name='gioitinh_user_data' value='1'>
                         Nữ
                     </label>
                 </div>
