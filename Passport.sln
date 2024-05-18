@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passport", "Passport\Passport.csproj", "{62FF0A32-2676-468A-AE5C-76200961EC0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Passport", "Passport\Passport.csproj", "{62FF0A32-2676-468A-AE5C-76200961EC0A}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup_passport_app", "Setup_passport_app\Setup_passport_app.vdproj", "{17306461-AB3E-4481-92B6-BB538317A828}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,8 @@ Global
 		{62FF0A32-2676-468A-AE5C-76200961EC0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62FF0A32-2676-468A-AE5C-76200961EC0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62FF0A32-2676-468A-AE5C-76200961EC0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17306461-AB3E-4481-92B6-BB538317A828}.Debug|Any CPU.ActiveCfg = Debug
+		{17306461-AB3E-4481-92B6-BB538317A828}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

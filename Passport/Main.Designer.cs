@@ -319,6 +319,7 @@ namespace Passport
             Controls.Add(panel1);
             Font = new Font("Century Gothic", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Main";
             Padding = new Padding(6);
             StartPosition = FormStartPosition.CenterScreen;
