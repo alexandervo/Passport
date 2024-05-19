@@ -37,19 +37,12 @@ namespace Passport
         }
         public void login()
         {
-/*          string namen = Environment.MachineName;
-            MessageBox.Show(namen);
-            namen = System.Net.Dns.GetHostName();
-            MessageBox.Show(namen);*/
-
             // Lấy thông tin đăng nhập từ ô nhập
             string name = txt_user.Text.Replace(" ","");
             string pw = txt_pass.Text.Replace(" ", "");
             SHA512 sha512 = SHA512.Create();
             byte[] hashed_pw = sha512.ComputeHash(Encoding.UTF8.GetBytes(pw));
             string connectionString = @"Data Source=" + sql_server_name + ";Initial Catalog=Passport;User Id=nv;Password=nv";
-
-            /*MessageBox.Show(sql_server_name);*/
 
             SqlConnection conn = new SqlConnection(connectionString);
             try
@@ -88,7 +81,6 @@ namespace Passport
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message); // kết nối ko thành công thì báo lỗi 
-                MessageBox.Show("Lỗi nè Lỗi nè"); // kết nối ko thành công thì báo lỗi 
             }
         }
 
