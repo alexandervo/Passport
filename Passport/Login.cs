@@ -13,6 +13,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Net;
 using System.Security.Cryptography;
 using System.Security.Policy;
+using System.Xml.Linq;
 namespace Passport
 {
     public partial class Login : Form
@@ -26,7 +27,7 @@ namespace Passport
         public static string pass = "";
         public static string bp = "";
         public static string ma = "";
-        public static string sql_server_name = "MARCO-A315";
+        public static string sql_server_name = System.Net.Dns.GetHostName();
         public bool hide = true;
 
         // nút thoát 
@@ -36,12 +37,19 @@ namespace Passport
         }
         public void login()
         {
+/*          string namen = Environment.MachineName;
+            MessageBox.Show(namen);
+            namen = System.Net.Dns.GetHostName();
+            MessageBox.Show(namen);*/
+
             // Lấy thông tin đăng nhập từ ô nhập
             string name = txt_user.Text.Replace(" ","");
             string pw = txt_pass.Text.Replace(" ", "");
             SHA512 sha512 = SHA512.Create();
             byte[] hashed_pw = sha512.ComputeHash(Encoding.UTF8.GetBytes(pw));
-            string connectionString = @"Data Source=" + sql_server_name + ";Initial Catalog=Passport;User Id= nv;Password= nv";
+            string connectionString = @"Data Source=" + sql_server_name + ";Initial Catalog=Passport;User Id=nv;Password=nv";
+
+            /*MessageBox.Show(sql_server_name);*/
 
             SqlConnection conn = new SqlConnection(connectionString);
             try
@@ -76,11 +84,11 @@ namespace Passport
                 }
                 // đóng kết nối và mở màn hình làm việc chính 
                 conn.Close();
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message); // kết nối ko thành công thì báo lỗi 
+                MessageBox.Show("Lỗi nè Lỗi nè"); // kết nối ko thành công thì báo lỗi 
             }
         }
 
